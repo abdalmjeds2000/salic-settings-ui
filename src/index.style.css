@@ -1,0 +1,30 @@
+@import url(./styles/user-card.style.css);
+
+:root {
+  --primary-500: #0B4D89;
+  --primary-700: #08305C;
+  --secondary-100: #EAF1FB;
+  --secondary-500: #79BDE3;
+  --secondary-700: #339BD6;
+  --success: #2A9F61;
+  --warning: #E6AB15;
+  --danger: #E74848;
+  
+  --light-100: #F2F2F2;
+  --light-200: #E5E5E5;
+  --light-300: #D5D5D5;
+  --gray: #959595;
+  --dark-100: #2A2A2A;
+  --dark-200: #181818;
+  --dark-300: #0F0F0F;
+
+  --text-xl: 1.5rem;
+  --text-lg: 1.25rem;
+  --text-base: 1rem;
+  --text-sm: 0.85rem;
+  --text-xs: 0.75rem;
+
+  --radius: 6px;
+
+  --transition-duration: 0.3s;
+}

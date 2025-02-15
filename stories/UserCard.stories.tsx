@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ComponentProps } from 'react';
 
-import { UserCard } from '../src/components/UserCard';
+import { UserCard } from '../src/components/user-card';
 
 type StoryProps = ComponentProps<typeof UserCard>;
 
@@ -29,6 +29,16 @@ const meta: any = {
         type: 'text',
       },
     },
+    className: {
+      control: {
+        type: 'text',
+      },
+    },
+    style: {
+      control: {
+        type: 'object',
+      },
+    },
   },
   args: {
     name: "Abdulmohsen Alaiban",
@@ -47,7 +57,8 @@ export const Example1: Story = {
     name: "Abdulmohsen Alaiban",
     jobTitle: "VP - IT Development",
     role: "Admin",
-    imageUrl: "https://salicapi.com/api/user/photo?id=abdulmohsen.alaiban@salic.com"
+    imageUrl: "https://salicapi.com/api/user/photo?id=abdulmohsen.alaiban@salic.com",
+    onClick: () => alert("Hi! I am Abdulmohsen Alaiban")
   },
   render: ({ ...args }: StoryProps) => {
     return <UserCard {...args} />;
@@ -67,19 +78,14 @@ export const Example2: Story = {
 };
 
 export const Example3: Story = {
-  args: {
-    name: "Akmal Aldahdouh",
-    jobTitle: "AVP - IT Development",
-    role: "Admin",
-    imageUrl: "https://salicapi.com/api/user/photo?id=Akmal.Eldahdouh@salic.com"
-  },
-  render: ({ ...args }) => {
-    const data = [
+  render: () => {
+    const data: StoryProps[] = [
       {
         name: "Akmal Aldahdouh",
         jobTitle: "AVP - IT Development",
         role: "Admin",
-        imageUrl: "https://salicapi.com/api/user/photo?id=Akmal.Eldahdouh@salic.com"
+        imageUrl: "https://salicapi.com/api/user/photo?id=Akmal.Eldahdouh@salic.com",
+        onClick: () => alert("Hi! I am Akmal Aldahdouh")
       },{
         name: "Abdullah Almuhannaa",
         jobTitle: "Talent Management Associate",
@@ -122,7 +128,12 @@ export const Example3: Story = {
       }
     ];
     
-    return <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+    return <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+        gap: "1rem"
+      }}>
       {data.map(user => <UserCard {...user} />)}
     </div>;
   },

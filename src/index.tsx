@@ -1,1 +1,2 @@
-export * from "./components/UserCard"
+import "./index.style.css"
+export * from "./components/user-card"
