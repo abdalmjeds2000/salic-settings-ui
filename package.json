@@ -36,16 +36,16 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "salic-settings-ui-library",
+  "name": "salic-settings-ui",
   "author": "abdalmjeds2000",
-  "module": "dist/salic-settings-ui-library.esm.js",
+  "module": "dist/salic-settings-ui.esm.js",
   "size-limit": [
     {
-      "path": "dist/salic-settings-ui-library.cjs.production.min.js",
+      "path": "dist/salic-settings-ui.cjs.production.min.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/salic-settings-ui-library.esm.js",
+      "path": "dist/salic-settings-ui.esm.js",
       "limit": "10 KB"
     }
   ],
