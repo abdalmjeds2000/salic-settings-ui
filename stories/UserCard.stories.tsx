@@ -6,6 +6,7 @@ import { UserCard } from '../src/components/user-card';
 type StoryProps = ComponentProps<typeof UserCard>;
 
 const meta: any = {
+  title: 'Components/UserCard',
   component: UserCard,
   tags: ['autodocs'],
   argTypes: {
@@ -41,10 +42,15 @@ const meta: any = {
     },
   },
   args: {
-    name: "Abdulmohsen Alaiban",
-    jobTitle: "VP - IT Development",
+    user: {
+      "id": "c8a91b75-9428-4df0-80d1-8b164f2a6294",
+      "name": "Abdulmohsen Al-Aiban",
+      "email": "abdulmohsen.alaiban@salic.com",
+      "department": null,
+      "title": "SVP - Information Technology",
+      "grade": "9"
+    },
     role: "Admin",
-    imageUrl: "https://salicapi.com/api/user/photo?id=abdulmohsen.alaiban@salic.com"
   },
 };
 
@@ -54,11 +60,15 @@ type Story = any;
 
 export const Example1: Story = {
   args: {
-    name: "Abdulmohsen Alaiban",
-    jobTitle: "VP - IT Development",
+    user: {
+      "id": "c8a91b75-9428-4df0-80d1-8b164f2a6294",
+      "name": "Abdulmohsen Al-Aiban",
+      "email": "abdulmohsen.alaiban@salic.com",
+      "department": null,
+      "title": "SVP - Information Technology",
+      "grade": "9"
+    },
     role: "Admin",
-    imageUrl: "https://salicapi.com/api/user/photo?id=abdulmohsen.alaiban@salic.com",
-    onClick: () => alert("Hi! I am Abdulmohsen Alaiban")
   },
   render: ({ ...args }: StoryProps) => {
     return <UserCard {...args} />;
@@ -67,10 +77,15 @@ export const Example1: Story = {
 
 export const Example2: Story = {
   args: {
-    name: "Akmal Aldahdouh",
-    jobTitle: "AVP - IT Development",
+    user: {
+      "id": "3dfd7e93-cf80-4a81-ae9b-16a47dd732f5",
+      "name": "Omar Alnasir",
+      "email": "Omar.Nasir@Salic.com",
+      "department": null,
+      "title": "Commercial Manager",
+      "grade": "6"
+    },
     role: "Admin",
-    imageUrl: "https://salicapi.com/api/user/photo?id=Akmal.Eldahdouh@salic.com"
   },
   render: ({ ...args }: StoryProps) => {
     return <UserCard {...args} />;
@@ -81,51 +96,76 @@ export const Example3: Story = {
   render: () => {
     const data: StoryProps[] = [
       {
-        name: "Akmal Aldahdouh",
-        jobTitle: "AVP - IT Development",
+        user: {
+          "id": "d0644526-7507-489c-a6b1-6c7743911c6a",
+          "name": "Turki Alasime",
+          "email": "Turki.Alasime@salic.com",
+          "department": null,
+          "title": "Executive Secretary",
+          "grade": "4"
+        },
+        role: "User",
+      },{
+        user: {
+          "id": "c8a91b75-9428-4df0-80d1-8b164f2a6294",
+          "name": "Abdulmohsen Al-Aiban",
+          "email": "abdulmohsen.alaiban@salic.com",
+          "department": null,
+          "title": "SVP - Information Technology",
+          "grade": "9"
+        },
         role: "Admin",
-        imageUrl: "https://salicapi.com/api/user/photo?id=Akmal.Eldahdouh@salic.com",
-        onClick: () => alert("Hi! I am Akmal Aldahdouh")
       },{
-        name: "Abdullah Almuhannaa",
-        jobTitle: "Talent Management Associate",
-        role: "User",
-        imageUrl: "https://salicapi.com/api/user/photo?id=Abdullah.Almuhannaa@salic.com"
-      },{
-        name: "Abdullah Alshuwayrikh",
-        jobTitle: "AVP - HC Excellence",
-        imageUrl: "https://salicapi.com/api/user/photo?id=Abdullah.Alshuwayrikh@salic.com"
-      },{
-        name: "Abdulaziz Aldalaan",
-        jobTitle: "VP - Strategic Performance",
-        role: "User",
-        imageUrl: "https://salicapi.com/api/user/photo?id=Abdulaziz.Aldalaan@salic.com"
-      },{
-        name: "Omar Nasir",
-        jobTitle: "Commercial Manager",
-        role: "User",
-        imageUrl: "https://salicapi.com/api/user/photo?id=Omar.Nasir@Salic.com"
-      },{
-        name: "Alaaeldin Abdeltawab",
-        jobTitle: "IT Application Support Associate",
+        user: {
+          "id": "bf2c12c9-ee49-4190-bba6-76d81a65962e",
+          "name": "Akmal Aldahdooh",
+          "email": "akmal.eldahdouh@salic.com",
+          "department": null,
+          "title": "AVP - IT Development",
+          "grade": "7"
+        },
         role: "Admin",
-        imageUrl: "https://salicapi.com/api/user/photo?id=Alaaeldin.Abdeltawab@salic.com"
       },{
-        name: "Farah Aldhalaan",
-        jobTitle: "AVP – Funding and Cash Management",
+        user: {
+          "id": "7aef9fff-dff8-4f82-af95-15f50b965c5b",
+          "name": "Abdullah Alsuheem",
+          "email": "abdullah.alsuheem@salic.com",
+          "department": null,
+          "title": "IT Support Associate",
+          "grade": "5"
+        },
         role: "User",
-        imageUrl: "https://salicapi.com/api/user/photo?id=Farah.Aldhalaan@salic.com"
       },{
-        name: "Alaa Fatta",
-        jobTitle: "Facilities and H&S Coordinator",
-        role: "User",
-        imageUrl: "https://salicapi.com/api/user/photo?id=Alaa.Fatta@salic.com"
-      },{
-        name: "Abdulmohsen Alaiban",
-        jobTitle: "VP - IT Development",
+        user: {
+          "id": "4eadbd79-b1b8-4186-aa5e-d01115a8d8e1",
+          "name": "Alaaeldin Abdeltawab",
+          "email": "Alaaeldin.Abdeltawab@salic.com",
+          "department": null,
+          "title": "IT Application Support Associate",
+          "grade": "5"
+        },
         role: "Admin",
-        imageUrl: "https://salicapi.com/api/user/photo?id=abdulmohsen.alaiban@salic.com"
-      }
+      },{
+        user: {
+          "id": "762debbd-7d45-4cfd-a022-59465146331a",
+          "name": "Hassan Alyami",
+          "email": "hassan.alyami@salic.com",
+          "department": null,
+          "title": "Facilities and H&S Coordinator",
+          "grade": "2"
+        },
+        role: "User",
+      },{
+        user: {
+          "id": "7a82204d-6d35-48da-8d51-f58b1aaf05c9",
+          "name": "Osama Khedr",
+          "email": "Osama.Khedr@salic.com",
+          "department": null,
+          "title": "IT Development Senior Specialist",
+          "grade": "4"
+        },
+        role: "User",
+      },
     ];
     
     return <div

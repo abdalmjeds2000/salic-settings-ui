@@ -1,6 +1,6 @@
 .salic-settings-item.user-card {
   background-color: white;
-  border: 1px solid var(--light-100);
+  border: var(--border);
   padding: 12px 20px;
   border-radius: var(--radius);
   display: flex;
