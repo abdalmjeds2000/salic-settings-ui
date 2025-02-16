@@ -1,5 +1,14 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { Employee } from '../types';
+
+type UserCardProps = {
+  user: Employee;
+  role?: string;
+  className?: string;
+  style?: React.CSSProperties;
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
+}
 
 export const UserCard = ({
   user,

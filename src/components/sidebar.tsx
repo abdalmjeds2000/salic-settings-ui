@@ -1,6 +1,21 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
+export type SidebarItem = {
+  label: string;
+  selected?: boolean;
+  onClick?: () => void;
+}
+export type SidebarProps = {
+  title?: string | React.ReactNode;
+  beforeTitle?: React.ReactNode | string;
+  afterTitle?: React.ReactNode | string;
+  className?: string;
+  style?: React.CSSProperties;
+  items: SidebarItem[];
+}
+
+
 export const Sidebar = ({
   title,
   items,

@@ -2,6 +2,18 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 
+type RowCardProps = React.PropsWithChildren<{
+  icon: React.ReactNode;
+  iconBgColor?: string;
+  title: string;
+  description?: string;
+  extra?: React.ReactNode;
+  collapsable?: boolean;
+  collapsedDefaultValue?: boolean;
+  className?: string;
+  style?: React.CSSProperties;
+}>
+
 export const RowCard = ({
   icon, iconBgColor,
   title, description,
