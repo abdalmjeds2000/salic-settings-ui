@@ -32,6 +32,7 @@
     color: var(--primary-700);
     margin-bottom: 3px;
     line-height: 1;;
+    font-weight: 600;
   }
   .job-title {
     color: var(--gray);
@@ -42,7 +43,8 @@
   .role {
     color: var(--secondary-700);
     font-size: var(--text-xs);
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1;;
+    margin-top: 2px;
   }
 }

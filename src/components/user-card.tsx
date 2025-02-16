@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { Employee } from '../types';
 
-type UserCardProps = {
+export type UserCardProps = {
   user: Employee;
   role?: string;
   className?: string;
@@ -19,7 +19,7 @@ export const UserCard = ({
 }: UserCardProps) => {
 
   const onFailedImageLoad = (e: any) => {
-    e.target.src = "/images/avatar.png";
+    e.target.src = "https://salicapi.com/File/avatar.png";
   }
 
   return (
