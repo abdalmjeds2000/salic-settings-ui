@@ -1,0 +1,16 @@
+.salic-settings-item.color-checkbox {
+  position: relative;
+  border-radius: 2px;
+  & .checkbox-icon {
+    width: 12px; 
+    height: 12px;
+    border-radius: 2px;
+    background-color: white;
+    position: absolute;
+    top: 2px; right: 2px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    padding: 1px;
+  }
+}

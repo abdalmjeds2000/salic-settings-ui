@@ -36,7 +36,6 @@ Collapsable.args = {
   description: 'Click to expand and reveal more options.',
   collapsable: true,
   children: <div style={{ padding: '25px' }}><p>Expanded content goes here.</p></div>,
-  style: { cursor: 'pointer' },
 };
 
 export const CustomStyled = Template.bind({});

@@ -1,6 +1,8 @@
 @import url(./styles/sidebar.style.css);
 @import url(./styles/row-card.style.css);
 @import url(./styles/user-card.style.css);
+@import url(./styles/image-input.style.css);
+@import url(./styles/color-checkbox.style.css);
 
 :root {
   --primary-500: #0B4D89;
@@ -23,8 +25,9 @@
   --text-xl: 1.5rem;
   --text-lg: 1.25rem;
   --text-base: 1rem;
-  --text-sm: 0.85rem;
-  --text-xs: 0.75rem;
+  --text-md: 0.9rem;
+  --text-sm: 0.8rem;
+  --text-xs: 0.7rem;
 
   --radius: 6px;
 

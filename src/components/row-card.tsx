@@ -37,8 +37,8 @@ export const RowCard = ({
         <div className='extra'>
           {extra}
           <span className='collapse-icon'>
-            {(collapsable && open) && <ChevronDown />}
-            {(collapsable && !open) && <ChevronRight />}
+            {(collapsable && open) && <ChevronDown size={20} />}
+            {(collapsable && !open) && <ChevronRight size={20} />}
           </span>
         </div>
       </div>

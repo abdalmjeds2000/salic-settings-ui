@@ -6,7 +6,7 @@
     .main-content {
       display: flex;
       align-items: center;
-      padding: 18px 22px;
+      padding: 16px 20px;
       &:hover {
         background-color: var(--secondary-100);
       }
@@ -26,13 +26,13 @@
     .info {
       flex-grow: 1;
       h3 {
-        font-size: var(--text-base);
+        font-size: var(--text-md);
         font-weight: 600;
       }
       p.description {
         color: var(--gray);
         font-size: var(--text-sm);
-        margin-top: 4px;
+        margin-top: 6px;
       }
     }
     .extra {
@@ -40,8 +40,35 @@
       align-items: center;
       gap: 0.5rem;
       .collapse-icon {
-        font-size: var(--text-lg);
         color: var(--gray);
       }
     }
+}
+
+
+/* tables screen */
+@media screen and (max-width: 768px) {
+  .salic-settings-item.row-card {
+    .main-content {
+      padding: 12px 16px;
+    }
+    .icon-container {
+      flex-basis: 2rem;
+      width: 2rem;
+      height: 2rem;
+      min-width: 2rem;
+      aspect-ratio: 1 / 1;
+      margin-right: 0.5rem;
+    }
+    .info {
+      h3 {
+        font-size: var(--text-sm);
+      }
+      p.description {
+        font-size: var(--text-xs);
+        margin-top: 4px;
+      }
+    }
+    
+  }
 }

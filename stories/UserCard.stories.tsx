@@ -2,6 +2,7 @@ import * as React from 'react';
 import { ComponentProps } from 'react';
 
 import { UserCard } from '../src/components/user-card';
+import { Ellipsis } from 'lucide-react';
 
 type StoryProps = ComponentProps<typeof UserCard>;
 
@@ -50,7 +51,7 @@ const meta: any = {
       "title": "SVP - Information Technology",
       "grade": "9"
     },
-    role: "Admin",
+    
   },
 };
 
@@ -58,7 +59,7 @@ export default meta;
 
 type Story = any;
 
-export const Example1: Story = {
+export const Default: Story = {
   args: {
     user: {
       "id": "c8a91b75-9428-4df0-80d1-8b164f2a6294",
@@ -68,31 +69,31 @@ export const Example1: Story = {
       "title": "SVP - Information Technology",
       "grade": "9"
     },
-    role: "Admin",
+    style: { maxWidth: 360, margin: '0 auto' }
   },
   render: ({ ...args }: StoryProps) => {
     return <UserCard {...args} />;
   },
 };
 
-export const Example2: Story = {
+export const WithExtra: Story = {
   args: {
     user: {
-      "id": "3dfd7e93-cf80-4a81-ae9b-16a47dd732f5",
-      "name": "Omar Alnasir",
-      "email": "Omar.Nasir@Salic.com",
+      "id": "d0644526-7507-489c-a6b1-6c7743911c6a",
+      "name": "Turki Alasime",
+      "email": "Turki.Alasime@salic.com",
       "department": null,
-      "title": "Commercial Manager",
-      "grade": "6"
+      "title": "Executive Secretary",
+      "grade": "4"
     },
-    role: "Admin",
+    extra: <span style={{ color: '#777', fontSize: 12 }}>Since 15 January 2020</span>
   },
   render: ({ ...args }: StoryProps) => {
     return <UserCard {...args} />;
   },
 };
 
-export const Example3: Story = {
+export const GridList: Story = {
   render: () => {
     const data: StoryProps[] = [
       {
@@ -104,7 +105,7 @@ export const Example3: Story = {
           "title": "Executive Secretary",
           "grade": "4"
         },
-        role: "User",
+        extra: <Ellipsis color="#777" size={20} />
       },{
         user: {
           "id": "c8a91b75-9428-4df0-80d1-8b164f2a6294",
@@ -114,7 +115,7 @@ export const Example3: Story = {
           "title": "SVP - Information Technology",
           "grade": "9"
         },
-        role: "Admin",
+        extra: <Ellipsis color="#777" size={20} />
       },{
         user: {
           "id": "bf2c12c9-ee49-4190-bba6-76d81a65962e",
@@ -124,7 +125,7 @@ export const Example3: Story = {
           "title": "AVP - IT Development",
           "grade": "7"
         },
-        role: "Admin",
+        extra: <Ellipsis color="#777" size={20} />
       },{
         user: {
           "id": "7aef9fff-dff8-4f82-af95-15f50b965c5b",
@@ -134,7 +135,7 @@ export const Example3: Story = {
           "title": "IT Support Associate",
           "grade": "5"
         },
-        role: "User",
+        extra: <Ellipsis color="#777" size={20} />
       },{
         user: {
           "id": "4eadbd79-b1b8-4186-aa5e-d01115a8d8e1",
@@ -144,7 +145,7 @@ export const Example3: Story = {
           "title": "IT Application Support Associate",
           "grade": "5"
         },
-        role: "Admin",
+        extra: <Ellipsis color="#777" size={20} />
       },{
         user: {
           "id": "762debbd-7d45-4cfd-a022-59465146331a",
@@ -154,7 +155,7 @@ export const Example3: Story = {
           "title": "Facilities and H&S Coordinator",
           "grade": "2"
         },
-        role: "User",
+        extra: <Ellipsis color="#777" size={20} />
       },{
         user: {
           "id": "7a82204d-6d35-48da-8d51-f58b1aaf05c9",
@@ -164,7 +165,7 @@ export const Example3: Story = {
           "title": "IT Development Senior Specialist",
           "grade": "4"
         },
-        role: "User",
+        extra: <Ellipsis color="#777" size={20} />
       },
     ];
     
