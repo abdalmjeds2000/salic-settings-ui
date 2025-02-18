@@ -32,7 +32,7 @@
       p.description {
         color: var(--gray);
         font-size: var(--text-sm);
-        margin-top: 6px;
+        margin-top: 2px;
       }
     }
     .extra {
@@ -66,7 +66,7 @@
       }
       p.description {
         font-size: var(--text-xs);
-        margin-top: 4px;
+        margin-top: 0px;
       }
     }
     

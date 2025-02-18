@@ -36,10 +36,10 @@ export const RowCard = ({
         </div>
         <div className='extra'>
           {extra}
-          <span className='collapse-icon'>
-            {(collapsable && open) && <ChevronDown size={20} />}
-            {(collapsable && !open) && <ChevronRight size={20} />}
-          </span>
+          {collapsable && <span className='collapse-icon'>
+            {open && <ChevronDown size={20} />}
+            {!open && <ChevronRight size={20} />}
+          </span>}
         </div>
       </div>
       {(collapsable && open) && <div className='expand-content'>

@@ -16,9 +16,9 @@
   }
   .photo-container {
     border-radius: 50%;
-    width: 2.75rem;
-    height: 2.75rem;
-    min-width: 2.75rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    min-width: 2.5rem;
     aspect-ratio: 1 / 1;
     overflow: hidden;
     background-color: #F5F5F5;
