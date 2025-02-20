@@ -2,9 +2,9 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 export type CheckboxButtonsProps = {
-  items: { key: string|number; label: string; }[];
-  activeKey: string|number;
-  onChange: (key: string|number) => void;
+  items: { key: string|number; label: React.ReactNode|string; }[];
+  activeKey: string|number|undefined|null;
+  onChange: (key: string|number|undefined|null) => void;
   size?: 'sm' | 'default' | 'lg';
   className?: string;
   style?: React.CSSProperties;

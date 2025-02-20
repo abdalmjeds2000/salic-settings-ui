@@ -10,10 +10,12 @@
 :root {
   --primary-500: #0B4D89;
   --primary-700: #08305C;
+  
   --secondary-100: #EAF1FB;
   --secondary-200: #dbe7f8;
   --secondary-500: #79BDE3;
   --secondary-700: #339BD6;
+
   --success: #2A9F61;
   --warning: #E6AB15;
   --danger: #E74848;
