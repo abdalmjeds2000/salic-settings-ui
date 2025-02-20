@@ -6,20 +6,22 @@ export type SidebarItem = {
   selected?: boolean;
   onClick?: () => void;
 }
+
 export type SidebarProps = {
   title?: string | React.ReactNode;
   beforeTitle?: React.ReactNode | string;
   afterTitle?: React.ReactNode | string;
+  items: SidebarItem[];
+  extra?: string | React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
-  items: SidebarItem[];
 }
-
 
 export const Sidebar = ({
   title,
   items,
   beforeTitle, afterTitle,
+  extra,
   className, style,
 }: SidebarProps) => {
 
@@ -43,6 +45,7 @@ export const Sidebar = ({
           })
         }
       </ul>
+      {extra}
     </div>
   );
 };

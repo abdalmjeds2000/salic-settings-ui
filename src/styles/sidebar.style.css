@@ -3,7 +3,8 @@
   padding: 18px 28px;
   border-right: var(--border);
   height: 100%;
-
+  display: flex;
+  flex-direction: column;
   .header {
     display: flex;
     align-items: center;
@@ -22,8 +23,10 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    flex-grow: 1;
     margin-top: 1.5rem;
     list-style: none;
+    overflow-y: auto;
     li.item {
       position: relative;
       padding: 0.5rem 1rem;
@@ -43,7 +46,7 @@
         content: "";
         position: absolute;
         top: 50%;
-        left: -1.5px;
+        left: 0px;
         width: 3px;
         height: 60%;
         border-radius: 2px;

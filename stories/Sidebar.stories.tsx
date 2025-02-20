@@ -1,6 +1,7 @@
 import React, { ComponentProps, useState } from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import { Sidebar } from '../src/components/sidebar';
+import { UserLabel } from '../src/components/user-label';
 import { ArrowLeft, PanelLeftClose } from 'lucide-react';
 
 export default {
@@ -51,6 +52,25 @@ Default.args = {
   ],
 };
 
+export const WithExtra = Template.bind({});
+WithExtra.args = {
+  title: 'With Extra',
+  items: [
+    { label: 'Home', selected: true },
+    { label: 'Dashboard', selected: false },
+    { label: 'Settings', selected: false },
+    
+  ],
+  extra: (
+    <UserLabel
+      name='Akmal Aldahdouh'
+      email='akmal.eldahdouh@salic.com'
+      title='AVP - IT Development'
+      size='sm'
+    />
+  )
+};
+
 export const WithBeforeAndAfterTitle = Template.bind({});
 WithBeforeAndAfterTitle.args = {
   title: 'Settings',
@@ -60,17 +80,5 @@ WithBeforeAndAfterTitle.args = {
     { label: 'Profile', selected: false },
     { label: 'Security', selected: true },
     { label: 'Notifications', selected: false },
-  ],
-};
-
-export const CustomStyled = Template.bind({});
-CustomStyled.args = {
-  title: 'Custom Sidebar',
-  className: 'custom-sidebar',
-  style: { backgroundColor: '#f8f8FF', padding: '10px' },
-  items: [
-    { label: 'Home', selected: true },
-    { label: 'Dashboard', selected: false },
-    { label: 'Settings', selected: false },
   ],
 };

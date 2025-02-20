@@ -1,14 +1,17 @@
 @import url(./styles/sidebar.style.css);
 @import url(./styles/row-card.style.css);
 @import url(./styles/user-card.style.css);
+@import url(./styles/group-card.style.css);
 @import url(./styles/user-label.style.css);
 @import url(./styles/image-input.style.css);
 @import url(./styles/color-checkbox.style.css);
+@import url(./styles/checkbox-buttons.style.css);
 
 :root {
   --primary-500: #0B4D89;
   --primary-700: #08305C;
   --secondary-100: #EAF1FB;
+  --secondary-200: #dbe7f8;
   --secondary-500: #79BDE3;
   --secondary-700: #339BD6;
   --success: #2A9F61;
@@ -22,6 +25,8 @@
   --dark-100: #2A2A2A;
   --dark-200: #181818;
   --dark-300: #0F0F0F;
+
+  --shadow: 0px 2px 7px #0B4D8936;
 
   --text-xl: 1.5rem;
   --text-lg: 1.25rem;

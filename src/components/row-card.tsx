@@ -24,19 +24,22 @@ export const RowCard = ({
 }: RowCardProps) => {
   const [open, setOpen] = React.useState<boolean>(!!collapsedDefaultValue);
 
+  const doCollapse = () => {
+    collapsable ? setOpen(!open) : undefined
+  }
   return (
     <div className={classNames('salic-settings-item row-card', className)} style={style}>
-      <div className='main-content' style={{ cursor: collapsable ? 'pointer' : 'default' }} onClick={collapsable ? () => setOpen(!open) : undefined}>
-        <div className='icon-container' style={{ backgroundColor: iconBgColor }}>
+      <div className='main-content'>
+        <div className='icon-container' style={{ backgroundColor: iconBgColor, cursor: collapsable ? 'pointer' : 'default' }} onClick={doCollapse}>
           {icon}
         </div>
-        <div className='info'>
+        <div className='info' style={{ cursor: collapsable ? 'pointer' : 'default' }} onClick={doCollapse}>
           <h3>{title}</h3>
           <p className='description'>{description}</p>
         </div>
         <div className='extra'>
           {extra}
-          {collapsable && <span className='collapse-icon'>
+          {collapsable && <span className='collapse-icon' style={{ cursor: collapsable ? 'pointer' : 'default' }} onClick={doCollapse}>
             {open && <ChevronDown size={20} />}
             {!open && <ChevronRight size={20} />}
           </span>}
