@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 
 type RowCardProps = React.PropsWithChildren<{
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   iconBgColor?: string;
   title: string;
   description?: string;
@@ -30,9 +30,9 @@ export const RowCard = ({
   return (
     <div className={classNames('salic-settings-item row-card', className)} style={style}>
       <div className='main-content'>
-        <div className='icon-container' style={{ backgroundColor: iconBgColor, cursor: collapsable ? 'pointer' : 'default' }} onClick={doCollapse}>
+        {!!icon && <div className='icon-container' style={{ backgroundColor: iconBgColor, cursor: collapsable ? 'pointer' : 'default' }} onClick={doCollapse}>
           {icon}
-        </div>
+        </div>}
         <div className='info' style={{ cursor: collapsable ? 'pointer' : 'default' }} onClick={doCollapse}>
           <h3>{title}</h3>
           <p className='description'>{description}</p>

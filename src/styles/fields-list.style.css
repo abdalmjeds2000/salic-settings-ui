@@ -1,0 +1,78 @@
+.salic-settings-item.fields-list {
+  padding-left: 32px;
+  .list-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    .manage-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      border-top: 1px solid var(--secondary-100);
+      .title {
+        font-size: var(--text-md);
+        font-weight: 500;
+      }
+      > div {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        button {
+          border: none;
+          padding: 0px;
+          background-color: transparent;
+          font-size: var(--text-md);
+          font-weight: 500;
+          cursor: pointer;
+          &:hover {
+            opacity: 0.75;
+          }
+          &.edit { color: var(--secondary-700) }
+          &.delete { color: var(--danger) }
+        }
+      }
+    }
+  }
+  .handler {
+    width: 32px;
+    height: 100%;
+    position: absolute;
+    right: 100%;
+    top: 0;
+    cursor: grab;
+    display: flex;
+    justify-content: center;
+    padding-top: 24px;
+    color: var(--gray);
+    &:active {
+      cursor: grabbing;
+    }
+  }
+}
+
+
+/* mobile screen */
+@media screen and (max-width: 768px) {
+  .salic-settings-item.fields-list {
+    padding-left: 24px;
+    .list-wrapper {
+      gap: 6px;
+      .manage-row {
+        padding: 8px 16px;
+        .title {
+          font-size: var(--text-sm);
+        }
+        > div {
+          gap: 8px;
+          button {
+            font-size: var(--text-sm);
+          }
+        }
+      }
+    }
+    .handler {
+      padding-top: 16px;
+    }
+  }
+}

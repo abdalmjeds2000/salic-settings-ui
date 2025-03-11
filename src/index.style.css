@@ -6,6 +6,7 @@
 @import url(./styles/image-input.style.css);
 @import url(./styles/color-checkbox.style.css);
 @import url(./styles/checkbox-buttons.style.css);
+@import url(./styles/fields-list.style.css);
 
 :root {
   --primary-500: #0B4D89;
