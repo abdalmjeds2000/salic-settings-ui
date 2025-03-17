@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Formik } from 'formik';
 import { inputsTypes, initialValues, inputType } from '../../../utils/form-builder';
-import * as Properties from './fields';
+import * as Fields from './fields';
 import { useDrawerContext } from '.';
 
 
@@ -9,10 +9,21 @@ const FieldSettingsForm: React.FC = () => {
   const [type, setType] = React.useState<inputType>('text');
   const { setForm } = useDrawerContext(); 
 
-  const propertiesMapping: { [K in inputType]?: React.ReactNode } = {  
-    text: <Properties.Text />,
-    number: <Properties.Number />,
-    select: <Properties.Select />,
+  const fieldsMapping: { [K in inputType]?: React.ReactNode } = {  
+    text: <Fields.Text />,
+    textarea: <Fields.Textarea />,
+    email: <Fields.Text />,
+    number: <Fields.Number />,
+    select: <Fields.Select />,
+    multiSelect: <Fields.MultiSelect />,
+    lookupSelect: <Fields.LookupSelect />,
+    date: <Fields.Date />,
+    time: <Fields.Time />,
+    datetime: <Fields.DateTime />,
+    daterange: <Fields.DateRange />,
+    timerange: <Fields.TimeRange />,
+    daterangetime: <Fields.DateTimeRange />,
+    uploadManually: <Fields.Attachments />
     // ...
   };
 
@@ -37,11 +48,8 @@ const FieldSettingsForm: React.FC = () => {
         //   return errors;
         // }}
         onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-            console.log(values)
-          }, 400);
+          console.log(values)
+          setSubmitting(false);
         }}
       >
         {(form) => {
@@ -50,7 +58,7 @@ const FieldSettingsForm: React.FC = () => {
           }, [form.values]);
           return (
             <Form>
-              {propertiesMapping[type]}
+              {fieldsMapping[type]}
               <button type='submit' disabled={form.isSubmitting} className='btn primary-btn'>
                 Add Field
               </button>

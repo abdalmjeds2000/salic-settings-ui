@@ -33,7 +33,7 @@ export type FormField = {
   viewType: string;
   rules?: { required: boolean, message: string }[];
   props?: PropsType;
-  options?: { value: string, label: string, text?: string, optionProps?: any }[];
+  options?: { id?: string; value: string, label: string, text?: string, optionProps?: any }[];
   style?: React.CSSProperties;
   initialValue?: any;
   children?: FormField[];
