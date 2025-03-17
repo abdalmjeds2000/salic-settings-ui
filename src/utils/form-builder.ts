@@ -349,13 +349,13 @@ export const initialValues = {
     category: 'input',
     type: 'uploadManually' as inputType,
     name: '', // cammel case from label
-    label: 'xsxswseqw',
+    label: '',
     dataType: 'list',
     viewType: 'files',
     dependency: null,
     rules: [
       { 
-        required: true, 
+        required: false, 
         message: ''
       }
     ]
