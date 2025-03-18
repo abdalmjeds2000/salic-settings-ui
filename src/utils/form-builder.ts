@@ -62,6 +62,7 @@ export const initialValues = {
     dataType: 'string',
     viewType: 'string',
     dependency: null,
+    notes: null,
     rules: [
       { 
         required: false, 
@@ -81,6 +82,7 @@ export const initialValues = {
     label: '',
     dataType: 'number',
     viewType: 'number',
+    notes: null,
     rules: [
       { 
         required: false, 
@@ -92,6 +94,53 @@ export const initialValues = {
       placeholder: ''
     }
   },
+  password: {
+    order: 0,
+    category: 'input',
+    type: 'password' as inputType,
+    name: '', // cammel case from label
+    label: '',
+    dataType: 'string',
+    viewType: 'string',
+    dependency: null,
+    notes: null,
+    rules: [
+      { 
+        required: true, 
+        message: ''
+      }
+    ],
+    props: { 
+      size: 'middle', 
+      placeholder: '**********' 
+    }
+  },
+  checkbox: {
+    order: 0,
+    category: 'input',
+    type: 'checkbox' as inputType,
+    name: '',
+    label: '',
+    dataType: 'boolean',
+    viewType: 'yes/no',
+    rules: [],
+    props: { 
+      size: 'middle'
+    }
+  },
+  switch: {
+    order: 0,
+    category: 'input',
+    type: 'switch' as inputType,
+    name: '',
+    label: '',
+    dataType: 'boolean',
+    viewType: 'yes/no',
+    rules: [],
+    props: { 
+      size: 'middle'
+    }
+  },
   select: {
     order: 0,
     category: 'input',
@@ -100,6 +149,7 @@ export const initialValues = {
     label: '',
     dataType: 'string',
     viewType: 'string',
+    notes: null,
     rules: [
       { 
         required: false, 
@@ -129,6 +179,7 @@ export const initialValues = {
     label: '',
     dataType: 'list',
     viewType: 'list',
+    notes: null,
     rules: [
       { 
         required: false, 
@@ -155,6 +206,7 @@ export const initialValues = {
     label: '',
     dataType: 'string',
     viewType: 'user',
+    notes: null,
     rules: [
       { 
         required: false, 
@@ -170,6 +222,72 @@ export const initialValues = {
       labelFlag: 'name'
     }
   },
+  radio: {
+    order: 0,
+    category: 'input',
+    type: 'radio' as inputType,
+    name: '',
+    label: '',
+    dataType: 'string',
+    viewType: 'string',
+    notes: null,
+    rules: [
+      { 
+        required: false, 
+        message: '' 
+      }
+    ],
+    props: { 
+      size: 'middle'
+    },
+    options: [
+      { value: '', label: '', id: '6ccd41e6-f30a-4c3d-812d-8af089178f35' },
+      { value: '', label: '', id: 'd10eb8ad-4e48-427e-a547-770196cafd2a' },
+      { value: '', label: '', id: 'bf455400-2348-4c02-8da4-650702c89b11' }
+    ]
+  },
+  radiobuttons: {
+    order: 0,
+    category: 'input',
+    type: 'radiobuttons' as inputType,
+    name: '',
+    label: '',
+    dataType: 'string',
+    viewType: 'string',
+    notes: null,
+    rules: [
+      { 
+        required: false, 
+        message: '' 
+      }
+    ],
+    props: { 
+      size: 'middle'
+    },
+    options: [
+      {
+        id: '4cab4c32-0a59-4555-a13b-94b60312fbc1',
+        text: '',
+        optionProps: {
+          value: ''
+        }
+      },
+      {
+        id: 'a9b45d20-8f2b-42b4-acd6-80223a6b29b5',
+        text: '',
+        optionProps: {
+          value: ''
+        }
+      },
+      {
+        id: '9ebad633-0836-4bd6-83a5-554f88f43375',
+        text: '',
+        optionProps: {
+          value: ''
+        }
+      }
+    ]
+  },
   date: {
     order: 0,
     category: 'input',
@@ -178,6 +296,7 @@ export const initialValues = {
     label: '',
     dataType: 'string',
     viewType: 'date',
+    notes: null,
     rules: [
       { 
         required: false, 
@@ -200,6 +319,7 @@ export const initialValues = {
     label: '',
     dataType: 'string',
     viewType: 'time',
+    notes: null,
     rules: [
       { 
         required: false, 
@@ -221,6 +341,7 @@ export const initialValues = {
     label: '',
     dataType: 'string',
     viewType: 'datetime',
+    notes: null,
     rules: [
       { 
         required: false, 
@@ -243,6 +364,7 @@ export const initialValues = {
     label: '',
     dataType: 'list',
     viewType: 'dateRange',
+    notes: null,
     rules: [
       { 
         required: false, 
@@ -265,6 +387,7 @@ export const initialValues = {
     label: '',
     dataType: 'list',
     viewType: 'timeRange',
+    notes: null,
     rules: [
       { 
         required: false, 
@@ -286,6 +409,7 @@ export const initialValues = {
     label: '',
     dataType: 'list',
     viewType: 'dateTimeRange',
+    notes: null,
     rules: [
       { 
         required: false, 
@@ -308,6 +432,7 @@ export const initialValues = {
     label: '',
     dataType: 'string',
     viewType: 'longString',
+    notes: null,
     rules: [
       { 
         required: false, 
@@ -329,6 +454,7 @@ export const initialValues = {
     dataType: 'string',
     viewType: 'email',
     dependency: null,
+    notes: null,
     rules: [
       { 
         required: false, 
@@ -353,6 +479,7 @@ export const initialValues = {
     dataType: 'list',
     viewType: 'files',
     dependency: null,
+    notes: null,
     rules: [
       { 
         required: false, 

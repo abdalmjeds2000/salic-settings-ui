@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { AllowCustomValue, DateFormats, DisabledBeforeToday, IsRequired, Label, Placeholder, SelectOptions, Size, Number as NumberInput } from './inputs'
+import { AllowCustomValue, DateFormats, DisabledBeforeToday, IsRequired, Label, Placeholder, SelectOptions, Size, Number as NumberInput, RadioButtonsOptions } from './inputs'
 import { dateFormatsOptions, dateTimeFormatsOptions, timeFormatsOptions } from '../../../utils/form-builder'
 
 export const Text: React.FC = () => {
@@ -36,6 +36,26 @@ export const Number: React.FC = () => {
   )
 }
 
+export const Password: React.FC = () => {
+  return (
+    <Fragment>
+      <Label />
+      <Placeholder />
+      <Size />
+      <IsRequired />
+    </Fragment>
+  )
+}
+
+export const Checkbox: React.FC = () => {
+  return (
+    <Fragment>
+      <Label />
+      <Size />
+    </Fragment>
+  )
+}
+
 export const Select: React.FC = () => {
   return (
     <Fragment>
@@ -68,6 +88,28 @@ export const LookupSelect: React.FC = () => {
       <Label />
       <Placeholder />
       <Size />
+      <IsRequired />
+    </Fragment>
+  )
+}
+
+export const Radio: React.FC = () => {
+  return (
+    <Fragment>
+      <Label />
+      <Size />
+      <SelectOptions />
+      <IsRequired />
+    </Fragment>
+  )
+}
+
+export const RadioButtons: React.FC = () => {
+  return (
+    <Fragment>
+      <Label />
+      <Size />
+      <RadioButtonsOptions />
       <IsRequired />
     </Fragment>
   )

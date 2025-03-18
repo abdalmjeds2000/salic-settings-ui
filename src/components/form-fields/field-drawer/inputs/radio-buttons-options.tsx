@@ -3,7 +3,7 @@ import React from 'react';
 import { useDrawerContext } from '..';
 import { v4 as uuidv4 } from 'uuid'; // Import UUID
 
-export const SelectOptions: React.FC = () => {
+export const RadioButtonsOptions: React.FC = () => {
   const { form: { values, setFieldValue } } = useDrawerContext();
 
   return (
@@ -18,14 +18,14 @@ export const SelectOptions: React.FC = () => {
                 (values?.options || []).map((option, index) => (
                   <div key={option.id} className='option'>
                     <Field
-                      name={`options.${index}.value`}
+                      name={`options.${index}.text`}
                       className='input'
                       placeholder={`Option ${index+1}`}
                       required
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                         const newValue = e.target.value;
-                        setFieldValue(`options.${index}.value`, newValue);
-                        setFieldValue(`options.${index}.label`, newValue);
+                        setFieldValue(`options.${index}.text`, newValue);
+                        setFieldValue(`options.${index}.optionProps.value`, newValue);
                       }}
                     />
                     {(values?.options||[]).length > 1 && <button

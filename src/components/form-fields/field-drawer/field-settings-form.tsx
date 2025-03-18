@@ -12,11 +12,16 @@ const FieldSettingsForm: React.FC = () => {
   const fieldsMapping: { [K in inputType]?: React.ReactNode } = {  
     text: <Fields.Text />,
     textarea: <Fields.Textarea />,
-    email: <Fields.Text />,
+    email: <Fields.Text />, // same as text, just set type = email in rules
+    password: <Fields.Password />,
     number: <Fields.Number />,
     select: <Fields.Select />,
     multiSelect: <Fields.MultiSelect />,
     lookupSelect: <Fields.LookupSelect />,
+    radio: <Fields.Radio />,
+    radiobuttons: <Fields.RadioButtons />,
+    checkbox: <Fields.Checkbox />,
+    switch: <Fields.Checkbox />, // same as checkbox
     date: <Fields.Date />,
     time: <Fields.Time />,
     datetime: <Fields.DateTime />,

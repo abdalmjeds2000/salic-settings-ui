@@ -1,5 +1,4 @@
 .salic-settings-item.fields-list {
-  padding-left: 32px;
   .list-wrapper {
     display: flex;
     flex-direction: column;
@@ -55,7 +54,6 @@
 /* mobile screen */
 @media screen and (max-width: 768px) {
   .salic-settings-item.fields-list {
-    padding-left: 24px;
     .list-wrapper {
       gap: 6px;
       .manage-row {
