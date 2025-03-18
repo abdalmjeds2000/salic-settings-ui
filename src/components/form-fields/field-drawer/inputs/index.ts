@@ -1,5 +1,3 @@
-import './inputs.style.css';
-
 export * from './label';
 export * from './placeholder';
 export * from './size';

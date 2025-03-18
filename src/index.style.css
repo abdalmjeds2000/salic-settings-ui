@@ -8,6 +8,7 @@
 @import url(./styles/checkbox-buttons.style.css);
 @import url(./styles/fields-list.style.css);
 @import url(./styles/field-drawer.style.css);
+@import url(./styles/inputs.style.css);
 
 :root {
   --primary-500: #0B4D89;
@@ -64,12 +65,13 @@
     margin-bottom: .5rem;
   }
   .input {
-    padding: .6rem 1rem;
+    padding: .5rem 1rem;
     border: var(--border);
     border-radius: var(--radius);
     display: block;
     width: 100%;
     color: var(--primary-700);
+    font-size: var(--text-md);
     transition-property: border;
     transition-duration: var(--transition-duration);
     &:focus {
