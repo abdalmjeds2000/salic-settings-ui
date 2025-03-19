@@ -3,7 +3,7 @@ import React from 'react'
 
 export const AllowCustomValue: React.FC = () => {
   return (
-    <div className='form-item checkbox-field'>
+    <div className='checkbox-field'>
       <div className='checkbox'>
         <Field type='checkbox' id='allowCustomValue' name='props.allowCustomValue' />
         <label htmlFor='allowCustomValue' className='checkbox-label' />

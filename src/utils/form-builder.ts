@@ -516,3 +516,30 @@ export const dateTimeFormatsOptions: { value: string; label: string; }[] = [
   { value: 'MMM D, YYYY hh:mm A', label: 'as Oct 05, 2023 03:30 PM' },
   { value: 'DD/MM/YYYY HH:mm', label: 'as 05/10/2023 15:30' },
 ];
+
+
+
+export const validations = {
+  checkSelect: (options: { value: string; label: string }[]): boolean => {  
+    if (!options) return false;  
+    return options.every(option =>   
+      'value' in option &&   
+      'label' in option &&  
+      typeof option.value === 'string' &&  
+      typeof option.label === 'string' &&
+      option.value.trim().length > 1 &&  
+      option.label.trim().length > 1   
+    );  
+  },
+  checkRadioButtons: (options: { text: string; optionProps: { value: string } }[]): boolean => {  
+    if (!options) return false; 
+    return options.every(option =>   
+      'value' in option.optionProps &&   
+      'text' in option &&  
+      typeof option.optionProps.value === 'string' &&  
+      typeof option.text === 'string' &&
+      option.optionProps.value.trim().length > 1 &&  
+      option.text.trim().length > 1   
+    );  
+  }  
+}

@@ -14,7 +14,7 @@
   }
   .wrapper {
     position: relative;
-    width: 500px;
+    /* width: 500px; */
     max-width: 100dvw;
     height: 100%;
     overflow: auto;
@@ -27,27 +27,8 @@
       justify-content: space-between;
       margin-bottom: 1.5rem;
       h1 {
-        font-size: var(--text-lg);
+        font-size: var(--text-base);
         font-weight: 600;
-      }
-      button {
-        padding: 0;
-        background: transparent;
-        border: none;
-        width: 2.5rem;
-        aspect-ratio: 1 / 1;
-        border-radius: var(--radius);
-        color: var(--gray);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition-property: background, color;
-        transition-duration: var(--transition-duration);
-        &:hover {
-          background: #00000016;
-          color: var(--dark-100);
-          cursor: pointer;
-        }
       }
     }
   }

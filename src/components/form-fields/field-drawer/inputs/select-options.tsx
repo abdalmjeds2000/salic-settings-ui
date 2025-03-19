@@ -43,7 +43,7 @@ export const SelectOptions: React.FC = () => {
             </div>
             <button
               type="button"
-              className='btn default-btn'
+              className='btn secondary-btn'
               onClick={() => arrayHelpers.push({ id: uuidv4(), value: '', label: '' })}
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7v14"/></svg>

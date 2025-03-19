@@ -3,7 +3,7 @@ import React from 'react'
 
 export const DisabledBeforeToday: React.FC = () => {
   return (
-    <div className='form-item checkbox-field'>
+    <div className='checkbox-field'>
       <div className='checkbox'>
         <Field type='checkbox' id='disabledBeforeToday' name='props.disabledBeforeToday' />
         <label htmlFor='disabledBeforeToday' className='checkbox-label' />
