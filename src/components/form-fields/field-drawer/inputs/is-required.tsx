@@ -1,14 +1,18 @@
 import { Field } from 'formik'
 import React from 'react'
+import { useDrawerContext } from '..';
 
-export const IsRequired: React.FC = () => {
+export const IsRequired: React.FC<{ isList?: boolean }> = ({ isList }) => {
+  const { childActive } = useDrawerContext()
+  const name = `${isList?`children.${childActive?.index}.`:''}rules.0.required`;
+
   return (
     <div className='checkbox-field'>
       <div className='checkbox'>
-        <Field type='checkbox' id='isRequired' name='rules[0].required' />
-        <label htmlFor='isRequired' className='checkbox-label' />
+        <Field type='checkbox' id={name} name={name} />
+        <label htmlFor={name} className='checkbox-label' />
       </div>
-      <label htmlFor='isRequired' className='label'>Is Required</label>
+      <label htmlFor={name} className='label'>Is Required</label>
     </div>
   )
 }

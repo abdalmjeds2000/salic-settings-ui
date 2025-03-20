@@ -1,3 +1,4 @@
+import { FormField } from "../types";
 
 export type inputType = 
   | 'text'
@@ -486,7 +487,46 @@ export const initialValues = {
         message: ''
       }
     ]
-  }
+  },
+  list: {
+    order: 0,
+    category: 'input',
+    type: 'list',
+    name: '',
+    label: '',
+    dataType: 'list',
+    viewType: 'list',
+    rules: [
+      { 
+        required: false, 
+        message: '' 
+      }
+    ],
+    notes: null,
+    props: {},
+    initialValue: [],
+    childrenContainerCssStyle: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
+      backgroundColor: '#00000005',
+      padding: '1rem',
+      borderRadius: '4px',
+      borderWidth: '1px',
+      borderColor: '#D1D5DB',
+      marginBottom: '1rem'
+    },
+    deleteChildrenBtnText: 'Delete',
+    deleteChildrenBtnStyle: {
+      position: 'absolute',
+      top: '-10px',
+      right: '22px',
+      color: '#f65858',
+      backgroundColor: '#f7dede',
+      padding: '0px 4px',
+      borderRadius: '4px'
+    },
+    children: []
+  },
   // ....
 }
 
@@ -542,4 +582,14 @@ export const validations = {
       option.text.trim().length > 1   
     );  
   }  
+}
+
+export const doFormikValidation = (values: any) => {
+  const errors: any = {};
+  if(['select', 'multiSelect', 'radio'].includes(values.type) && !validations.checkSelect((values as any).options)) {
+    errors.options = 'Complete Options';
+  } else if(values.type == 'radiobuttons' && !validations.checkRadioButtons((values as any).options)) {
+    errors.options = 'Complete Options';
+  }
+  return errors;
 }

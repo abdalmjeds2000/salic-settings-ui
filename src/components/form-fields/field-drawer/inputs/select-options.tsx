@@ -3,34 +3,37 @@ import React from 'react';
 import { useDrawerContext } from '..';
 import { v4 as uuidv4 } from 'uuid'; // Import UUID
 
-export const SelectOptions: React.FC = () => {
+export const SelectOptions: React.FC<{ isList?: boolean }> = ({ isList }) => {
   const { form: { values, setFieldValue } } = useDrawerContext();
+  const { childActive } = useDrawerContext()
+  const name = `${isList?`children.${childActive?.index}.`:''}options`;
+  const value = (isList ? values.children?.[childActive?.index]?.options : values?.options) || [];
 
   return (
     <div className='form-item'>
       <label className='label'>Options</label>
       <FieldArray
-        name='options'
+        name={name}
         render={arrayHelpers => (
           <div className='select-options'>
             <div className='options'>
               {
-                (values?.options || []).map((option, index) => (
+                value.map((option, index) => (
                   <div key={option.id} className='option'>
                     <Field
-                      name={`options.${index}.value`}
+                      name={`${name}.${index}.value`}
                       className='input'
                       placeholder={`Option ${index+1}`}
                       required
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                         const newValue = e.target.value;
-                        setFieldValue(`options.${index}.value`, newValue);
-                        setFieldValue(`options.${index}.label`, newValue);
+                        setFieldValue(`${name}.${index}.value`, newValue);
+                        setFieldValue(`${name}.${index}.label`, newValue);
                       }}
                     />
-                    {(values?.options||[]).length > 1 && <button
+                    {value.length > 1 && <button
                       type="button"
-                      className='remove-icon-btn'
+                      className='btn danger-btn icon-btn'
                       onClick={() => arrayHelpers.remove(index)}
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

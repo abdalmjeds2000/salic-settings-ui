@@ -144,32 +144,11 @@
   }
 }
 
-
-.remove-icon-btn {
-  width: 2.5rem;
-  min-width: 2.5rem;
-  aspect-ratio: 1 / 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius);
-  background-color: transparent;
+.danger-btn {
+  background-color: #fff2f2;
   color: var(--danger);
-  font-size: var(--text-base);
-  transition-property: background-color;
-  transition-duration: var(--transition-duration);
-  box-shadow: none;
-  border: none;
   &:hover {
-    cursor: pointer;
-    background-color: #ffe5e5;
-  }
-  &:active {
-    opacity: 0.9;
-  }
-  &:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
+    background-color: #ffdcdc;
   }
 }
 
