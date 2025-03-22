@@ -1,10 +1,10 @@
 import { Field } from 'formik'
 import React from 'react'
-import { useDrawerContext } from '..';
+import { useAddFieldContext } from '../add-field-form';
 
 export const IsRequired: React.FC<{ isList?: boolean }> = ({ isList }) => {
-  const { childActive } = useDrawerContext()
-  const name = `${isList?`children.${childActive?.index}.`:''}rules.0.required`;
+  const { activeChild } = useAddFieldContext()
+  const name = `${isList?`children.${activeChild?.index}.`:''}rules.0.required`;
 
   return (
     <div className='checkbox-field'>

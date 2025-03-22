@@ -1,10 +1,10 @@
 import { Field } from 'formik'
 import React from 'react'
-import { useDrawerContext } from '..';
+import { useAddFieldContext } from '../add-field-form';
 
 export const DisabledBeforeToday: React.FC<{ isList?: boolean }> = ({ isList }) => {
-  const { childActive } = useDrawerContext()
-  const name = `${isList?`children.${childActive?.index}.`:''}props.disabledBeforeToday`;
+  const { activeChild } = useAddFieldContext()
+  const name = `${isList?`children.${activeChild?.index}.`:''}props.disabledBeforeToday`;
 
   return (
     <div className='checkbox-field'>

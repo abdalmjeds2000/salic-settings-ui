@@ -1,13 +1,12 @@
 import { ErrorMessage, Field, FieldArray } from 'formik';
 import React from 'react';
-import { useDrawerContext } from '..';
 import { v4 as uuidv4 } from 'uuid'; // Import UUID
+import { useAddFieldContext } from '../add-field-form';
 
 export const SelectOptions: React.FC<{ isList?: boolean }> = ({ isList }) => {
-  const { form: { values, setFieldValue } } = useDrawerContext();
-  const { childActive } = useDrawerContext()
-  const name = `${isList?`children.${childActive?.index}.`:''}options`;
-  const value = (isList ? values.children?.[childActive?.index]?.options : values?.options) || [];
+  const { form: { values, setFieldValue }, activeChild } = useAddFieldContext();
+  const name = `${isList?`children.${activeChild?.index}.`:''}options`;
+  const value = (isList ? values.children?.[activeChild?.index as number]?.options : values?.options) || [];
 
   return (
     <div className='form-item'>

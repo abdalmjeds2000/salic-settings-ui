@@ -1,11 +1,11 @@
 import { ErrorMessage, Field } from 'formik'
 import React from 'react'
 import { inputSizes } from '../../../../utils/form-builder'
-import { useDrawerContext } from '..';
+import { useAddFieldContext } from '../add-field-form';
 
 export const Size: React.FC<{ isList?: boolean }> = ({ isList }) => {
-  const { childActive } = useDrawerContext()
-  const name = `${isList?`children.${childActive?.index}.`:''}props.size`;
+  const { activeChild } = useAddFieldContext()
+  const name = `${isList?`children.${activeChild?.index}.`:''}props.size`;
 
   return (
     <div className='form-item'>

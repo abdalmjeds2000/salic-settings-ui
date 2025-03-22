@@ -14,6 +14,7 @@
   --primary-500: #0B4D89;
   --primary-700: #08305C;
   
+  --secondary-50: #F5FAFE;
   --secondary-100: #EAF1FB;
   --secondary-200: #dbe7f8;
   --secondary-500: #79BDE3;
@@ -48,7 +49,9 @@
 }
 
 .salic-settings-item {
-  color: var(--primary-700);
+  h1, h2, h3, h4, h5, h6, p, span, div, ul, ol, li {
+    color: var(--primary-700);
+  }
 }
 
 
@@ -97,8 +100,8 @@
   background: transparent;
   font-size: var(--text-md);
   font-weight: 500;
-  padding: 0 1.5rem;
-  height: 2.5rem;
+  padding: 0 1.25rem;
+  height: 2.25rem;
   display: flex;
   align-items: center;
   justify-content: center;

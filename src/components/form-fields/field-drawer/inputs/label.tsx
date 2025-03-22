@@ -1,11 +1,10 @@
 import { ErrorMessage, Field } from 'formik'
 import React from 'react'
-import { useDrawerContext } from '..'
-
+import { useAddFieldContext } from '../add-field-form'
 
 export const Label: React.FC<{ isList?: boolean }> = ({ isList }) => {
-  const { childActive } = useDrawerContext()
-  const name = `${isList?`children.${childActive?.index}.`:''}label`;
+  const { activeChild } = useAddFieldContext()
+  const name = `${isList?`children.${activeChild?.index}.`:''}label`;
   
   return (
     <div className='form-item'>

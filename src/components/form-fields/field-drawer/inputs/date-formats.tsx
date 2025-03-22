@@ -1,12 +1,13 @@
 import { Field } from 'formik'
 import React from 'react'
-import { useDrawerContext } from '..';
+import { useAddFieldContext } from '../add-field-form';
 
-export const DateFormats: React.FC<{ options: { value: string; label: string }[], isList?: boolean }> = ({ 
+export const DateFormats: React.FC<{ options: { value: string; label: string }[]; isList?: boolean }> = ({ 
   options, isList
  }) => {
-  const { childActive } = useDrawerContext()
-  const name = `${isList?`children.${childActive?.index}.`:''}props.format`;
+  const { activeChild } = useAddFieldContext()
+  const name = `${isList?`children.${activeChild?.index}.`:''}props.format`;
+
   return (
     <div className='form-item'>
       <label htmlFor={name} className='label'>Format</label>

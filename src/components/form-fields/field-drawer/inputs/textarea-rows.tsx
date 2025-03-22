@@ -1,10 +1,10 @@
 import { ErrorMessage, Field } from 'formik'
 import React from 'react'
-import { useDrawerContext } from '..';
+import { useAddFieldContext } from '../add-field-form';
 
 export const TextareaRows: React.FC<{ isList?: boolean }> = ({ isList }) => {
-  const { childActive } = useDrawerContext()
-  const name = `${isList?`children.${childActive?.index}.`:''}props.rows`;
+  const { activeChild } = useAddFieldContext()
+  const name = `${isList?`children.${activeChild?.index}.`:''}props.rows`;
 
   return (
     <div className='form-item'>

@@ -1,10 +1,8 @@
-import React, { Fragment } from 'react'
-import { AllowCustomValue, DateFormats, DisabledBeforeToday, IsRequired, Label, Placeholder, SelectOptions, Size, TextareaRows, RadioButtonsOptions, ListFieldsRenderer } from './inputs'
-import { dateFormatsOptions, dateTimeFormatsOptions, timeFormatsOptions } from '../../../utils/form-builder'
+import React, { Fragment } from 'react';
+import { AllowCustomValue, DisabledBeforeToday, IsRequired, Label, Placeholder, SelectOptions, Size, TextareaRows, RadioButtonsOptions, ListFieldsRenderer } from './inputs';
 
 interface ReactFCWithExtra extends React.FC<{ list?: boolean }> {
   Extra: React.FC<{ list?: boolean }>;
-  
 }
 
 
@@ -157,7 +155,7 @@ export const Date: React.FC<{ list?: boolean }> = ({ list }) => {
       <Label isList={list} />
       <Placeholder isList={list} />
       <Size isList={list} />
-      <DateFormats options={dateFormatsOptions} isList={list} />
+      {/* <DateFormats options={dateFormatsOptions} isList={list} /> */}
       <DisabledBeforeToday isList={list} />
       <br />
       <IsRequired isList={list} />
@@ -169,9 +167,8 @@ export const DateRange: React.FC<{ list?: boolean }> = ({ list }) => {
   return (
     <Fragment>
       <Label isList={list} />
-      <Placeholder isRange isList={list} />
       <Size isList={list} />
-      <DateFormats options={dateFormatsOptions} isList={list} />
+      {/* <DateFormats options={dateFormatsOptions} isList={list} /> */}
       <DisabledBeforeToday isList={list} />
       <br />
       <IsRequired isList={list} />
@@ -185,7 +182,7 @@ export const Time: React.FC<{ list?: boolean }> = ({ list }) => {
       <Label isList={list} />
       <Placeholder isList={list} />
       <Size isList={list} />
-      <DateFormats options={timeFormatsOptions} isList={list} />
+      {/* <DateFormats options={timeFormatsOptions} isList={list} /> */}
       <IsRequired isList={list} />
     </Fragment>
   )
@@ -195,9 +192,8 @@ export const TimeRange: React.FC<{ list?: boolean }> = ({ list }) => {
   return (
     <Fragment>
       <Label isList={list} />
-      <Placeholder isRange isList={list} />
       <Size isList={list} />
-      <DateFormats options={timeFormatsOptions} isList={list} />
+      {/* <DateFormats options={timeFormatsOptions} isList={list} /> */}
       <br />
       <IsRequired isList={list} />
     </Fragment>
@@ -210,7 +206,7 @@ export const DateTime: React.FC<{ list?: boolean }> = ({ list }) => {
       <Label isList={list} />
       <Placeholder isList={list} />
       <Size isList={list} />
-      <DateFormats options={dateTimeFormatsOptions} isList={list} />
+      {/* <DateFormats options={dateTimeFormatsOptions} isList={list} /> */}
       <DisabledBeforeToday isList={list} />
       <br />
       <IsRequired isList={list} />
@@ -222,9 +218,8 @@ export const DateTimeRange: React.FC<{ list?: boolean }> = ({ list }) => {
   return (
     <Fragment>
       <Label isList={list} />
-      <Placeholder isRange isList={list} />
       <Size isList={list} />
-      <DateFormats options={dateTimeFormatsOptions} isList={list} />
+      {/* <DateFormats options={dateTimeFormatsOptions} isList={list} /> */}
       <DisabledBeforeToday isList={list} />
       <br />
       <IsRequired isList={list} />
@@ -241,12 +236,12 @@ export const Attachments: React.FC<{ list?: boolean }> = ({ list }) => {
   )
 }
 
-export const List: React.FC<{ list?: boolean }> = ({ list }) => {
+export const List: React.FC = () => {
   return (
     <Fragment>
-      <Label isList={list} />
+      <Label />
       <ListFieldsRenderer />
-      <IsRequired isList={list} />
+      <IsRequired />
     </Fragment>
   )
 }

@@ -1,5 +1,3 @@
-import { FormField } from "../types";
-
 export type inputType = 
   | 'text'
   | 'number'
@@ -525,7 +523,29 @@ export const initialValues = {
       padding: '0px 4px',
       borderRadius: '4px'
     },
-    children: []
+    children: [
+      {
+        order: 0,
+        category: 'input',
+        type: 'text' as inputType,
+        name: '', // cammel case from label
+        label: '',
+        dataType: 'string',
+        viewType: 'string',
+        dependency: null,
+        notes: null,
+        rules: [
+          { 
+            required: false, 
+            message: ''
+          }
+        ],
+        props: { 
+          size: 'middle', 
+          placeholder: '' 
+        }
+      }
+    ]
   },
   // ....
 }
@@ -590,6 +610,18 @@ export const doFormikValidation = (values: any) => {
     errors.options = 'Complete Options';
   } else if(values.type == 'radiobuttons' && !validations.checkRadioButtons((values as any).options)) {
     errors.options = 'Complete Options';
+  } else if(values.type == 'list') {
+    values.children.map((field: any) => {
+      if(!field.label.trim()) {
+        errors.children = 'Complete Children'
+      } else if(['select', 'multiSelect', 'radio'].includes(field.type) && !validations.checkSelect((field as any).options)) {
+        errors.children = 'Complete Children'
+      } else if(field.type == 'radiobuttons' && !validations.checkRadioButtons((field as any).options)) {
+        errors.children = 'Complete Children'
+      } else if(field.type == 'textarea' && !field.props.rows) {
+        errors.children = 'Complete Children'
+      }
+    })
   }
   return errors;
 }
