@@ -625,3 +625,8 @@ export const doFormikValidation = (values: any) => {
   }
   return errors;
 }
+
+export function getFieldTitle(key: inputType): string {
+  if(!key) return 'Unknown Field';
+  return inputsTypes.find(f => f.key == key)?.name || 'Unknown Field';
+}

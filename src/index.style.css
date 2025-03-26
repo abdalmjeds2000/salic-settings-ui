@@ -28,6 +28,7 @@
   --light-200: #E5E5E5;
   --light-300: #D5D5D5;
   --gray: #959595;
+  --dark-50: #767d84;
   --dark-100: #2A2A2A;
   --dark-200: #181818;
   --dark-300: #0F0F0F;
@@ -49,7 +50,7 @@
 }
 
 .salic-settings-item {
-  h1, h2, h3, h4, h5, h6, p, span, div, ul, ol, li {
+  h1, h2, h3, h4, h5, h6, p, div, ul, ol {
     color: var(--primary-700);
   }
 }
@@ -94,6 +95,7 @@
   }
 }
 
+/* default button */
 .btn {
   border-radius: var(--radius);
   border: none;
@@ -119,6 +121,21 @@
     cursor: not-allowed;
   }
 }
+
+/* busttons sizes */
+.sm-btn {
+  font-size: var(--text-sm);
+  padding: 0 0.75rem;
+  height: 1.75rem;
+}
+.lg-btn {
+  font-size: var(--text-base);
+  padding: 0 1.5rem;
+  height: 2.5rem;
+}
+
+
+/* button variants */
 .default-btn {
   background-color:  #00000008;
   color: var(--dark-100);
@@ -126,11 +143,6 @@
     background-color: #00000016;
   }
 }
-.icon-btn {
-  padding: 0;
-  aspect-ratio: 1 / 1;
-}
-
 .secondary-btn {
   background-color: var(--secondary-100);
   color: var(--primary);
@@ -138,7 +150,6 @@
     background-color: var(--secondary-200);
   }
 }
-
 .primary-btn {
   background-color: var(--primary-700);
   color: white;
@@ -146,7 +157,6 @@
     background-color: var(--primary-500);
   }
 }
-
 .danger-btn {
   background-color: #fff2f2;
   color: var(--danger);
@@ -154,6 +164,14 @@
     background-color: #ffdcdc;
   }
 }
+
+/* is icon button */
+.icon-btn {
+  padding: 0;
+  aspect-ratio: 1 / 1;
+}
+
+
 
 .anchor-btn {
   color: var(--primary-700);

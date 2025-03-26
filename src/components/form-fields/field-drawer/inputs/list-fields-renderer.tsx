@@ -1,6 +1,6 @@
 import { ErrorMessage, FieldArray } from 'formik';
 import React from 'react';
-import { initialValues, inputsTypes } from '../../../../utils/form-builder';
+import { getFieldTitle, initialValues, inputType } from '../../../../utils/form-builder';
 import { useAddFieldContext } from '../add-field-form';
 
 export const ListFieldsRenderer: React.FC = () => {
@@ -35,7 +35,7 @@ export const ListFieldsRenderer: React.FC = () => {
                       borderRadius: 'var(--radius)'
                     }}>
                     <h4 style={{ fontWeight: 500, fontSize: 'var(--text-md)'}}>
-                      {index + 1}. {inputsTypes.find(i => i.key == child.type)?.name || `Child ${index + 1}`}
+                      {index + 1}. {getFieldTitle(child.type as inputType) || `Child ${index + 1}`}
                     </h4>
                     <div style={{
                       display: 'flex',

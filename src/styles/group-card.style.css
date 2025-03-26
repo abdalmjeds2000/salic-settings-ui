@@ -53,7 +53,7 @@
       font-weight: 600;
     }
     p {
-      color: var(--gray);
+      color: var(--dark-50);
       font-size: var(--text-sm);
       line-height: 1.25;
     }

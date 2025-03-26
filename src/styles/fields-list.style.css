@@ -3,35 +3,54 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    .manage-row {
+    .field-description {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 12px 20px;
-      border-top: 1px solid var(--secondary-100);
-      .title {
-        font-size: var(--text-md);
-        font-weight: 500;
-      }
-      > div {
+      gap: 2rem;
+      p {
+        color: var(--dark-50);
+        font-size: var(--text-sm);
+        margin-top: 6px;
         display: flex;
         align-items: center;
-        gap: 12px;
-        button {
-          border: none;
-          padding: 0px;
-          background-color: transparent;
-          font-size: var(--text-md);
-          font-weight: 500;
-          cursor: pointer;
-          &:hover {
-            opacity: 0.75;
+        gap: .25rem;
+      }
+    }
+    .extra-content {
+      padding: 12px 20px;
+      border-top: var(--border);
+      .content {
+        padding-bottom: 1rem;
+        border-bottom: var(--border);
+        .option-item {
+          td {
+            padding: .25rem 0rem .5rem;
+            font-size: var(--text-sm);
+            color: var(--dark-50);
           }
-          &.edit { color: var(--secondary-700) }
-          &.delete { color: var(--danger) }
+          td.label {
+            font-weight: 500;
+            padding-right: 2rem;
+          }
+        }
+      }
+      .manage-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-color: var(--secondary-100);
+        padding-top: .5rem;
+        .title {
+          font-size: var(--text-sm);
+          font-weight: 500;
+        }
+        > div {
+          display: flex;
+          gap: .25rem;
         }
       }
     }
+    
   }
   .handler {
     width: 32px;
@@ -43,7 +62,7 @@
     display: flex;
     justify-content: center;
     padding-top: 24px;
-    color: var(--gray);
+    color: var(--dark-50);
     &:active {
       cursor: grabbing;
     }
@@ -56,21 +75,32 @@
   .salic-settings-item.fields-list {
     .list-wrapper {
       gap: 6px;
-      .manage-row {
-        padding: 8px 16px;
-        .title {
-          font-size: var(--text-sm);
+      .field-description {
+        flex-direction: column;
+        align-items: start;
+        gap: 0rem;
+        p {
+          font-size: var(--text-xs);
         }
-        > div {
-          gap: 8px;
-          button {
-            font-size: var(--text-sm);
+      }
+      .extra-content {
+        padding: 8px 14px;
+        .content {
+          .option-item {
+            td {
+              padding: .15rem 0rem .25rem;
+              font-size: var(--text-xs);
+            }
+            td.label {
+              padding-right: 1rem;
+            }
           }
         }
       }
     }
     .handler {
-      padding-top: 16px;
+      justify-content: end;
     }
   }
+  
 }

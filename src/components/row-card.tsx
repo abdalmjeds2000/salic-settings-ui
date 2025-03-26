@@ -6,7 +6,7 @@ type RowCardProps = React.PropsWithChildren<{
   icon?: React.ReactNode;
   iconBgColor?: string;
   title: string;
-  description?: string;
+  description?: string | React.ReactNode;
   extra?: React.ReactNode;
   collapsable?: boolean;
   collapsedDefaultValue?: boolean;
@@ -35,7 +35,11 @@ export const RowCard = ({
         </div>}
         <div className='info' style={{ cursor: collapsable ? 'pointer' : 'default' }} onClick={doCollapse}>
           <h3>{title}</h3>
-          <p className='description'>{description}</p>
+          {
+            typeof description === 'string' 
+            ? <p className='description'>{description}</p>
+            : description
+          }
         </div>
         <div className='extra'>
           {extra}

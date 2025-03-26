@@ -16,6 +16,7 @@ import {
 } from '@dnd-kit/sortable';
 import { SortableItem } from './sortable-item';
 import { RowCard } from '../../row-card';
+import { getFieldTitle, inputType } from '../../../utils/form-builder';
 
 
 export type FieldsListProps = {
@@ -28,6 +29,8 @@ export const FieldsList: React.FC<FieldsListProps> = ({ fields, onChange }) => {
     useSensor(PointerSensor),
     useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates })
   );
+
+  const dotIcon = <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12.1" cy="12.1" r="1"/></svg>
 
   // const orderedFields = fields.sort((a, b) => a.order > b.order ? 1 : -1)
 
@@ -46,6 +49,8 @@ export const FieldsList: React.FC<FieldsListProps> = ({ fields, onChange }) => {
       });
     }
   };
+
+
   
   return (
     <div className='salic-settings-item fields-list'>
@@ -56,14 +61,37 @@ export const FieldsList: React.FC<FieldsListProps> = ({ fields, onChange }) => {
               <SortableItem key={field.name} id={field.name}>
                 <RowCard
                   title={field.label || field.name}
-                  description={`Field Type - ${field.type}`}
+                  description={
+                    <div className='field-description'>
+                      <p>
+                        <span>Field Type</span>
+                        {dotIcon} 
+                        <span>{getFieldTitle(field.type as inputType)}</span>
+                      </p>
+                      {field.label && <p>
+                        <span>Field Name</span>
+                        {dotIcon} 
+                        <span>{field.label}</span>
+                      </p>}
+                      {field.props?.placeholder && <p>
+                        <span>Placeholder</span>
+                        {dotIcon} 
+                        <span>{field.props.placeholder}</span>
+                      </p>}
+                    </div>
+                  }
                   collapsable
                 >
-                  <div className='manage-row'>
-                    <p className='title'>Customize Field</p>
-                    <div className='flex'>
-                      <button type='button' className='edit'>Edit</button>
-                      <button type='button' className='delete'>Delete</button>
+                  <div className='extra-content'>
+                    <div className='content' hidden={!extraContent(field)}>
+                      {extraContent(field)}
+                    </div>
+                    <div className='manage-row'>
+                      <p className='title'>Edit Field</p>
+                      <div>
+                        {/* <button type='button' className='btn danger-btn sm-btn'>Delete Field</button> */}
+                        <button type='button' className='btn secondary-btn sm-btn'>Edit Field</button>
+                      </div>
                     </div>
                   </div>
                 </RowCard>
@@ -73,5 +101,31 @@ export const FieldsList: React.FC<FieldsListProps> = ({ fields, onChange }) => {
         </SortableContext>
       </DndContext>
     </div>
+  )
+}
+
+const extraContent = (field: FormField) => {
+  switch (field.type as inputType) {
+    case 'select':
+    case 'multiSelect':
+    case 'radio':
+      return <RenderOptions options={field.options||[]} />
+    case 'radiobuttons':
+      return <RenderOptions options={field.options?.map((o, i) => ({ label: o.text || `Option ${i+1}`, value: o.optionProps.value }))||[]} />
+    default:
+      return null
+  }
+}
+
+const RenderOptions: React.FC<{ options: { value: string; label: string }[] }> = ({ options }) => {
+  return (
+    <table className='options'>
+      {options.map((_, index) => (
+        <tr className='option-item' key={index}>
+          <td className='label'>Options {index+1}</td>
+          <td className='value'>{_.label}</td>
+        </tr>
+      ))}
+    </table>
   )
 }
