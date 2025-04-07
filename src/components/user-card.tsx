@@ -4,6 +4,7 @@ import { Employee } from '../types';
 
 export type UserCardProps = {
   user: Employee;
+  customDescription?: React.ReactNode | string;
   extra?: React.ReactNode | string;
   className?: string;
   style?: React.CSSProperties;
@@ -12,6 +13,7 @@ export type UserCardProps = {
 
 export const UserCard = ({
   user,
+  customDescription,
   className,
   style,
   extra,
@@ -29,7 +31,7 @@ export const UserCard = ({
       </div>
       <div className='info'>
         <h3>{user.name}</h3>
-        <p className='job-title'>{user.title}</p>
+        <p className='job-title'>{!!customDescription ? customDescription : user.title}</p>
       </div>
       {extra}
     </div>
