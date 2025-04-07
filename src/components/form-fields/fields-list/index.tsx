@@ -57,10 +57,11 @@ export const FieldsList: React.FC<FieldsListProps> = ({ fields, onChange }) => {
       <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
         <SortableContext items={fields.map((field) => field.name)} strategy={verticalListSortingStrategy}>
           <div className='list-wrapper'>
-            {fields.map((field) => (
+            {fields.map((field, index) => (
               <SortableItem key={field.name} id={field.name}>
                 <RowCard
                   title={field.label || field.name}
+                  icon={<></>}
                   description={
                     <div className='field-description'>
                       <p>
@@ -68,26 +69,25 @@ export const FieldsList: React.FC<FieldsListProps> = ({ fields, onChange }) => {
                         {dotIcon} 
                         <span>{getFieldTitle(field.type as inputType)}</span>
                       </p>
-                      {field.label && <p>
-                        <span>Field Name</span>
-                        {dotIcon} 
-                        <span>{field.label}</span>
-                      </p>}
-                      {field.props?.placeholder && <p>
+                      <p>
+                        {field.rules?.[0]?.required ? 'Required' : 'Optional'}
+                      </p>
+                      {/* {field.props?.placeholder && <p>
                         <span>Placeholder</span>
                         {dotIcon} 
                         <span>{field.props.placeholder}</span>
-                      </p>}
+                      </p>} */}
                     </div>
                   }
                   collapsable
+                  collapsedDefaultValue={index === fields.indexOf(fields.find(f => !!extraContent(f)) || fields[0])} /* default open the first field have extra options, or the fields of index 0 */
                 >
                   <div className='extra-content'>
                     <div className='content' hidden={!extraContent(field)}>
                       {extraContent(field)}
                     </div>
                     <div className='manage-row'>
-                      <p className='title'>Edit Field</p>
+                      <p className='title'>{/* Edit Field */}</p>
                       <div>
                         {/* <button type='button' className='btn danger-btn sm-btn'>Delete Field</button> */}
                         <button type='button' className='btn secondary-btn sm-btn'>Edit Field</button>

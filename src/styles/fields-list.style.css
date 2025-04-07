@@ -56,13 +56,13 @@
     width: 32px;
     height: 100%;
     position: absolute;
-    right: 100%;
+    left: 1.25rem;
     top: 0;
     cursor: grab;
     display: flex;
     justify-content: center;
-    padding-top: 24px;
-    color: var(--dark-50);
+    padding-top: 1.5rem;
+    user-select: none;
     &:active {
       cursor: grabbing;
     }
@@ -99,7 +99,7 @@
       }
     }
     .handler {
-      justify-content: end;
+      justify-content: start;
     }
   }
   

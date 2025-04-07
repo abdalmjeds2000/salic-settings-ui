@@ -40,6 +40,5 @@
   & .placeholder-btn.without-image {
     display: flex;
     background-color: var(--secondary-100);
-    color: var(--primary-700);
   }
 }

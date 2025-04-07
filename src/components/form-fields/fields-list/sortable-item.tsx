@@ -4,7 +4,7 @@ import { CSS } from '@dnd-kit/utilities';
 
 interface SortableItemProps {
   id: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export const SortableItem: React.FC<SortableItemProps> = ({ id, children }) => {
@@ -23,7 +23,7 @@ export const SortableItem: React.FC<SortableItemProps> = ({ id, children }) => {
   return (
     <div ref={setNodeRef} style={style}>
       <div {...attributes} {...listeners} className='handler'>
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="1"/><circle cx="9" cy="5" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="15" cy="19" r="1"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="1"/><circle cx="9" cy="5" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="15" cy="19" r="1"/></svg>
       </div>
       {children}
     </div>

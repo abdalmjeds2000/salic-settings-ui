@@ -49,9 +49,12 @@
   --border: 1px solid var(--secondary-200);
 }
 
+.salic-settings-item {
+  color: var(--primary-700);
+}
+
 /* form & inputs */
 .form-item {
-  color: var(--primary-700);
   margin-bottom: 1.5rem;
   /* min-height: 5.25rem; */
   .label {

@@ -47,7 +47,6 @@
     flex-grow: 1;
     h3 {
       font-size: var(--text-md);
-      color: var(--primary-700);
       margin-bottom: 4px;
       line-height: 1.25;
       font-weight: 600;
