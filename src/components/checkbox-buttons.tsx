@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 export type CheckboxButtonsProps = {
-  items: { key: string|number; label: React.ReactNode|string; }[];
+  items: { key: string|number; label: React.ReactNode|string; style?: React.CSSProperties }[];
   activeKey: string|number|undefined|null;
   onChange: (key: string|number|undefined|null) => void;
   size?: 'sm' | 'default' | 'lg';
@@ -20,9 +20,9 @@ export const CheckboxButtons = ({
   return (
     <div className={classNames('salic-settings-item checkbox-buttons', size, className)} style={style} onClick={onClick}>
       {
-        items.map((item: any) => {
+        items.map((item) => {
           return (
-            <div key={item.key} className={classNames('item', { 'active': item.key === activeKey })} onClick={() => onChange(item.key)}>
+            <div key={item.key} className={classNames('item', { 'active': item.key === activeKey })} style={item.style} onClick={() => onChange(item.key)}>
               {item.label}
             </div>
           )

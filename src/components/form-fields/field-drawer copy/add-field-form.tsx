@@ -4,7 +4,6 @@ import { doFormikValidation, initialValues, inputsTypes, inputType } from '../..
 import { FormField } from '../../../types'
 import { useDrawerContext } from '.'
 import  * as Fields from './fields';
-import InputType from './inputs/input-type'
 
 const fieldsMapping = (isList?: boolean): { [K in inputType]: { master: React.ReactNode; extra?: React.ReactNode; } } => {  
   return {
@@ -153,25 +152,20 @@ const AddFieldForm: React.FC<Props> = ({
 
           return (
             <Form className='wrappers'>
-              <div className='wrapper' style={{ width: width }}>
-                <div className='header'>
-                  <h1>Select Input Type</h1>
-                  <button type='button' className='btn secondary-btn icon-btn' onClick={close}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6m0-6 6 6"/></svg>
-                  </button>
-                </div>
-                <InputType 
-                  value={type} 
-                  onChange={(value) => setType(value as any)} 
-                  disabled={open2 || !!activeChild}
-                />
-              </div>
+
               {/* main drawer */}
               <div className='wrapper' style={{ width: width }}>
                 <div className='header'>
                   <h1>Input Settings</h1>
+                  <button type='button' className='btn secondary-btn icon-btn' onClick={close}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6m0-6 6 6"/></svg>
+                  </button>
                 </div>
                 <div className='form-item'>
+                  <label htmlFor='type' className='label'>Field Type</label>
+                  <select id='type' className='input' value={type} onChange={(e) => setType(e.target.value as any)}>
+                    {inputsTypes.map(opt => <option value={opt.key}>{opt.name}</option>)}
+                  </select>
                   <div hidden={!haveExtra}>
                     <button type='button' onClick={() => setOpen2(true)} className='anchor-btn' style={{ fontSize: 'var(--text-sm)', marginTop: 4, float: 'right' }}>
                       <span>Configure Dropdown Menu Items</span>

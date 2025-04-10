@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { AllowCustomValue, DisabledBeforeToday, IsRequired, Label, Placeholder, SelectOptions, Size, TextareaSize, TextareaRows, RadioButtonsOptions, ListFieldsRenderer, RadioSize } from './inputs';
+import { AllowCustomValue, DisabledBeforeToday, IsRequired, Label, Placeholder, SelectOptions, Size, TextareaRows, RadioButtonsOptions, ListFieldsRenderer } from './inputs';
 
 interface ReactFCWithExtra extends React.FC<{ list?: boolean }> {
   Extra: React.FC<{ list?: boolean }>;
@@ -23,7 +23,7 @@ export const Textarea: React.FC<{ list?: boolean }> = ({ list }) => {
       <Label isList={list} />
       <Placeholder isList={list} />
       <TextareaRows isList={list} />
-      <TextareaSize isList={list} />
+      <Size isList={list} />
       <IsRequired isList={list} />
     </Fragment>
   )
@@ -117,7 +117,7 @@ export const Radio: ReactFCWithExtra = ({ list }) => {
   return (
     <Fragment>
       <Label isList={list} />
-      <RadioSize isList={list} />
+      <Size isList={list} />
       <IsRequired isList={list} />
     </Fragment>
   )

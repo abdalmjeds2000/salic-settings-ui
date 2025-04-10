@@ -22,3 +22,135 @@
     line-height: 2;
   }
 }
+
+
+.input-type-field {
+  .block {
+    margin-bottom: 2rem;
+    .title {
+      color: var(--gray);
+      font-size: var(--text-md);
+      margin-bottom: 1rem;
+    }
+    .block-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      .item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        border: var(--border);
+        border-radius: var(--radius);
+        transition-property: border-color;
+        transition-duration: var(--transition-duration);
+        cursor: pointer;
+        &.disabled {
+          cursor: not-allowed;
+        }
+        &:not(.disabled):hover, &.active {
+          border-color: var(--primary-500);
+        }
+        .icon {
+          display: flex;
+          align-items: center;
+          & > svg {
+            width: 1.4rem;
+            height: 1.4rem;
+          }
+        }
+        .name {
+          font-weight: 500;
+          font-size: var(--text-sm);
+
+        }
+      }
+    }
+  }
+}
+/* tables screen */
+@media screen and (max-width: 768px) {
+  .input-type-field {
+    .block {
+      margin-bottom: 1rem;
+      .title {
+        margin-bottom: 0.5rem;
+      }
+      .block-list {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+    }
+  }
+}
+
+
+
+.textarea-size {
+  .item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    p {
+      flex-basis: 20%;
+      font-size: var(--text-sm);
+      font-weight: 500;
+    }
+    > div {
+      position: relative;
+      flex-basis: 80%;
+      padding: 1rem;
+      border-radius: var(--radius);
+      border: var(--border);
+      &::after {
+        content: 'Enter a Text Area description...';
+        position: absolute;
+        font-size: var(--text-sm);
+        color: var(--gray);
+        left: 1rem;
+        top: 0.5rem;
+      }
+      .checkbox {
+        visibility: hidden;
+        color: white;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        width: 1rem;
+        height: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--primary-700);
+        border-radius: 0px 0px 0px var(--radius);
+      }
+      &.large {
+        height: 4rem;
+      }
+      &.large::after {
+        font-size: var(--text-base);
+      }
+      &.middle {
+        height: 3.5rem;
+      }
+      &.middle::after {
+        font-size: var(--text-md);
+      }
+      &.small {
+        height: 2.5rem;
+      }
+      &.small::after {
+        font-size: var(--text-sm);
+      }
+      &.active {
+        border-color: var(--primary-500);
+        .checkbox {
+          visibility: visible;
+        }
+      }
+    }
+  }
+}
+
+

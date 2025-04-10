@@ -1,3 +1,5 @@
+import React, { ReactNode } from "react";
+
 export type inputType = 
   | 'text'
   | 'number'

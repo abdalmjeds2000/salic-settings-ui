@@ -12,8 +12,8 @@ const Context = React.createContext<ContextType>({} as ContextType);
 export type FieldDrawerProps = {
   open: boolean;
   setOpen: (o: boolean) => void;
-  width?: number | string;
-  secondDrawerWidth?: number | string;
+  width: number | string;
+  secondDrawerWidth: number | string;
 }
 
 export const FieldDrawer: React.FC<FieldDrawerProps> = ({
