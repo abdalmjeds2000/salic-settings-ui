@@ -17,10 +17,11 @@ export type FieldDrawerProps = {
   submitButtonText?: string;
   width?: number | string;
   secondDrawerWidth?: number | string;
+  onSubmit?: (values: any) => void
 }
 
 export const FieldDrawer: React.FC<FieldDrawerProps> = ({
-  open, setOpen, width = 400, initValues, submitButtonText = 'Add Field', secondDrawerWidth = 350
+  open, setOpen, width = 400, initValues, submitButtonText = 'Add Field', secondDrawerWidth = 350, onSubmit
 }) => {
 
   if(!open) return null
@@ -35,7 +36,7 @@ export const FieldDrawer: React.FC<FieldDrawerProps> = ({
           initValues={initValues}
           secondDrawerWidth={secondDrawerWidth}
           submitButtonText={submitButtonText}
-          onSubmit={values => console.log('values ===>>', values)}
+          onSubmit={values => onSubmit?.(values)}
         />
       </div>
     </Context.Provider>

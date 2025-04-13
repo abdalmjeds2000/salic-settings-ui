@@ -105,7 +105,7 @@ const AddFieldForm: React.FC<Props> = ({
   const { setOpen } = useDrawerContext();
   const [form, setForm] = React.useState<FormikProps<FormField>>(null as any);  
   const [open2, setOpen2] = React.useState<boolean>(false);  
-  const [type, setType] = React.useState<inputType>(initValues?.type as inputType || 'time');
+  const [type, setType] = React.useState<inputType>(initValues?.type as inputType || 'text');
   const [activeChild, setActiveChild] = React.useState<activeChildType>(null);
   const activeChildType: inputType = form?.values.children?.[activeChild?.index as number]?.type as inputType;
 

@@ -22,9 +22,10 @@ import { getFieldTitle, inputType } from '../../../utils/form-builder';
 export type FieldsListProps = {
   fields: FormField[];
   onChange?: any;
+  onEditField?: (field: FormField) => void
 }
 
-export const FieldsList: React.FC<FieldsListProps> = ({ fields, onChange }) => {
+export const FieldsList: React.FC<FieldsListProps> = ({ fields, onChange, onEditField }) => {
   const sensors = useSensors(
     useSensor(PointerSensor),
     useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates })
@@ -90,7 +91,7 @@ export const FieldsList: React.FC<FieldsListProps> = ({ fields, onChange }) => {
                       <p className='title'>{/* Edit Field */}</p>
                       <div>
                         {/* <button type='button' className='btn danger-btn sm-btn'>Delete Field</button> */}
-                        <button type='button' className='btn secondary-btn sm-btn'>Edit Field</button>
+                        <button type='button' className='btn secondary-btn sm-btn' onClick={() => onEditField?.(field)}>Edit Field</button>
                       </div>
                     </div>
                   </div>
