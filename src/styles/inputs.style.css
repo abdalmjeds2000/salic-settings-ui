@@ -85,9 +85,7 @@
   }
 }
 
-
-
-.textarea-size {
+.default-size {
   .item {
     display: flex;
     align-items: center;
@@ -103,13 +101,15 @@
       padding: 1rem;
       border-radius: var(--radius);
       border: var(--border);
+      overflow: hidden;
       &::after {
-        content: 'Enter a Text Area description...';
+        content: 'Enter a Text ...';
         position: absolute;
         font-size: var(--text-sm);
         color: var(--gray);
         left: 1rem;
-        top: 0.5rem;
+        top: 50%;
+        transform: translateY(-50%);
       }
       .checkbox {
         visibility: hidden;
@@ -126,25 +126,29 @@
         border-radius: 0px 0px 0px var(--radius);
       }
       &.large {
-        height: 4rem;
+        height: 3rem;
       }
       &.large::after {
         font-size: var(--text-base);
       }
       &.middle {
-        height: 3.5rem;
+        height: 2.5rem;
       }
       &.middle::after {
         font-size: var(--text-md);
       }
       &.small {
-        height: 2.5rem;
+        height: 2rem;
       }
       &.small::after {
         font-size: var(--text-sm);
       }
       &.active {
         border-color: var(--primary-500);
+        background-color: var(--secondary-100);
+        &::after {
+          color: var(--primary-700);
+        }
         .checkbox {
           visibility: visible;
         }
@@ -152,5 +156,155 @@
     }
   }
 }
+
+.password-size {
+  .item {
+    > div {
+      &::after {
+        content: '********';
+      }
+    }
+  }
+}
+
+.textarea-size {
+  .item {
+    > div {
+      &::after {
+        top: 1.25rem;
+      }
+      &::before {
+        content: '';
+        width: 0.5rem;
+        height: 0.5rem;
+        background-color: var(--light-300);
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        clip-path: polygon(100% 1%, 0% 100%, 100% 100%);
+        cursor: ns-resize;
+      }
+      &.active {
+        &::before {
+          background-color: var(--primary-700);
+        }
+      }
+      &.large {
+        height: 4rem;
+      }
+      &.middle {
+        height: 3.5rem;
+      }
+      &.small {
+        height: 2.5rem;
+      }
+    }
+  }
+}
+
+.number-size {
+  .item {
+    > div {
+      &::after {
+        content: '0.00';
+      }
+      .buttons {
+        position: absolute;
+        height: 1.25rem;
+        right: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .buttons::after {
+        content: '';
+        width: 0.7rem;
+        height: 0.5rem;
+        background-color: var(--light-300);
+        position: absolute;
+        right: 0rem;
+        bottom: 0rem;
+        clip-path: polygon(50% 100%, 0 0, 100% 0);
+      }
+      .buttons::before {
+        content: '';
+        width: 0.7rem;
+        height: 0.5rem;
+        background-color: var(--light-300);
+        position: absolute;
+        right: 0rem;
+        top: 0rem;
+        clip-path: polygon(50% 1%, 0% 100%, 100% 100%);
+      }
+      &.active {
+        .buttons::after {
+          background-color: var(--primary-700);
+        }
+        .buttons::before {
+          background-color: var(--primary-700);
+        }
+      }
+    }
+  }
+}
+
+.select-size {
+  .item {
+    > div {
+      &::after {
+        content: 'Select item ...';
+      }
+      .buttons {
+        position: absolute;
+        height: 0.4rem;
+        right: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .buttons::after {
+        content: '';
+        width: 0.75rem;
+        height: 0.4rem;
+        background-color: var(--light-300);
+        position: absolute;
+        right: 0rem;
+        bottom: 0rem;
+        clip-path: polygon(50% 100%, 0 0, 100% 0);
+      }
+      &.active {
+        .buttons::after {
+          background-color: var(--primary-700);
+        }
+        .buttons::before {
+          background-color: var(--primary-700);
+        }
+      }
+    }
+  }
+}
+
+.date-size {
+  .item {
+    > div {
+      &::after {
+        content: 'Select date ...';
+      }
+      .icon {
+        position: absolute;
+        right: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--light-300);
+        display: flex;
+        align-items: center;
+      }
+      &.active {
+        .icon {
+          color: var(--primary-700);
+        }
+      }
+    }
+  }
+}
+
 
 

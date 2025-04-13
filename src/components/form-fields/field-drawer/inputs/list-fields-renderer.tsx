@@ -4,7 +4,9 @@ import { getFieldTitle, initialValues, inputType } from '../../../../utils/form-
 import { useAddFieldContext } from '../add-field-form';
 
 export const ListFieldsRenderer: React.FC = () => {
-  const { form: { values }, activeChild, setActiveChild, setOpen2 } = useAddFieldContext();
+  const { form, activeChild, setActiveChild, setOpen2 } = useAddFieldContext();
+  if(!form) return null;
+  const { values } = form;
   const maxChildren = 10;
   const childrenCount: number = values?.children?.length || 0;
 

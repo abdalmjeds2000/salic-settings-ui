@@ -46,8 +46,8 @@ const fieldsMapping = (isList?: boolean): { [K in inputType]: { master: React.Re
       master: <Fields.Checkbox list={isList} />
     },
     switch: {
-      master: <Fields.Checkbox list={isList} />
-    }, // same as checkbox
+      master: <Fields.Switch list={isList} />
+    },
     date: {
       master: <Fields.Date list={isList} />
     },
@@ -94,17 +94,18 @@ const Context = React.createContext<ContextType>({} as ContextType);
 type Props = {
   width?: number | string;
   secondDrawerWidth?: number | string;
+  initValues?: FormField;
   onSubmit?: (values: any) => void;
-  submitButtonText?: string
+  submitButtonText: string
 }
 
 const AddFieldForm: React.FC<Props> = ({
-   width, secondDrawerWidth, onSubmit, submitButtonText = 'Add Field'
+   width, secondDrawerWidth, onSubmit, initValues, submitButtonText
 }) => {
   const { setOpen } = useDrawerContext();
   const [form, setForm] = React.useState<FormikProps<FormField>>(null as any);  
   const [open2, setOpen2] = React.useState<boolean>(false);  
-  const [type, setType] = React.useState<inputType>('text');
+  const [type, setType] = React.useState<inputType>(initValues?.type as inputType || 'time');
   const [activeChild, setActiveChild] = React.useState<activeChildType>(null);
   const activeChildType: inputType = form?.values.children?.[activeChild?.index as number]?.type as inputType;
 
@@ -138,7 +139,7 @@ const AddFieldForm: React.FC<Props> = ({
     <Context.Provider value={{ form, setForm, open2, setOpen2, type, setType, activeChild, setActiveChild, haveChildExtra, haveExtra }}>
       <Formik
         enableReinitialize
-        initialValues={(initialValues[type] || {}) as any}
+        initialValues={!!initValues ? initValues : (initialValues[type] || {}) as any}
         validate={doFormikValidation}
         onSubmit={(values, { setSubmitting }) => {
           onSubmit?.(values);

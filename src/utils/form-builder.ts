@@ -1,5 +1,3 @@
-import React, { ReactNode } from "react";
-
 export type inputType = 
   | 'text'
   | 'number'
@@ -27,7 +25,7 @@ export type fieldType = {
   name: string;
 }
 
-export type inputSize = 'large' | 'middle' | 'small';
+export type inputSize = 'large' | 'middle' | 'small' | 'default';
 
 export const inputsTypes: fieldType[] = [
   { key: 'text', name: 'Text' },
@@ -139,7 +137,7 @@ export const initialValues = {
     viewType: 'yes/no',
     rules: [],
     props: { 
-      size: 'middle'
+      size: 'default'
     }
   },
   select: {
@@ -553,9 +551,13 @@ export const initialValues = {
 }
 
 export const inputSizes: { value: inputSize; label: string; }[] = [
-  { value: 'large', label: 'Large' },
+  { value: 'small', label: 'Small' },
   { value: 'middle', label: 'Default' },
-  { value: 'small', label: 'Small' }
+  { value: 'large', label: 'Large' }
+];
+export const switchSizes: { value: inputSize; label: string; }[] = [
+  { value: 'small', label: 'Small' },
+  { value: 'default', label: 'Default' } 
 ];
 
 export const dateFormatsOptions: { value: string; label: string; }[] = [

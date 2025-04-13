@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { AllowCustomValue, DisabledBeforeToday, IsRequired, Label, Placeholder, SelectOptions, Size, TextareaSize, TextareaRows, RadioButtonsOptions, ListFieldsRenderer, RadioSize } from './inputs';
+import { AllowCustomValue, DisabledBeforeToday, IsRequired, Label, Placeholder, SelectOptions, Size, TextareaSize, TextareaRows, RadioButtonsOptions, ListFieldsRenderer, RadioSize, TextSize, PasswordSize, NumberSize, SwitchSize, ButtonsSize, SelectSize, DateSize } from './inputs';
 
 interface ReactFCWithExtra extends React.FC<{ list?: boolean }> {
   Extra: React.FC<{ list?: boolean }>;
@@ -11,7 +11,7 @@ export const Text: React.FC<{ list?: boolean }> = ({ list }) => {
     <Fragment>
       <Label isList={list} />
       <Placeholder isList={list} />
-      <Size isList={list} />
+      <TextSize isList={list} />
       <IsRequired isList={list} />
     </Fragment>
   )
@@ -34,7 +34,7 @@ export const Number: React.FC<{ list?: boolean }> = ({ list }) => {
     <Fragment>
       <Label isList={list} />
       <Placeholder isList={list} />
-      <Size isList={list} />
+      <NumberSize isList={list} />
       <IsRequired isList={list} />
     </Fragment>
   )
@@ -45,7 +45,7 @@ export const Password: React.FC<{ list?: boolean }> = ({ list }) => {
     <Fragment>
       <Label isList={list} />
       <Placeholder isList={list} />
-      <Size isList={list} />
+      <PasswordSize isList={list} />
       <IsRequired isList={list} />
     </Fragment>
   )
@@ -55,7 +55,16 @@ export const Checkbox: React.FC<{ list?: boolean }> = ({ list }) => {
   return (
     <Fragment>
       <Label isList={list} />
-      <Size isList={list} />
+      {/* <Size isList={list} /> */}
+    </Fragment>
+  )
+}
+
+export const Switch: React.FC<{ list?: boolean }> = ({ list }) => {
+  return (
+    <Fragment>
+      <Label isList={list} />
+      <SwitchSize isList={list} />
     </Fragment>
   )
 }
@@ -65,7 +74,7 @@ export const Select: ReactFCWithExtra = ({ list }) => {
     <Fragment>
       <Label isList={list} />
       <Placeholder isList={list} />
-      <Size isList={list} />
+      <SelectSize isList={list} />
       <IsRequired isList={list} />
       <br />
       <AllowCustomValue isList={list} />
@@ -86,7 +95,7 @@ export const MultiSelect: ReactFCWithExtra = ({ list }) => {
     <Fragment>
       <Label isList={list} />
       <Placeholder isList={list} />
-      <Size isList={list} />
+      <SelectSize isList={list} />
       <IsRequired isList={list} />
       <br />
       <AllowCustomValue isList={list} />
@@ -107,7 +116,7 @@ export const LookupSelect: React.FC<{ list?: boolean }> = ({ list }) => {
     <Fragment>
       <Label isList={list} />
       <Placeholder isList={list} />
-      <Size isList={list} />
+      <SelectSize isList={list} />
       <IsRequired isList={list} />
     </Fragment>
   )
@@ -135,7 +144,7 @@ export const RadioButtons: ReactFCWithExtra = ({ list }) => {
   return (
     <Fragment>
       <Label isList={list} />
-      <Size isList={list} />
+      <ButtonsSize isList={list} />
       <IsRequired isList={list} />
     </Fragment>
   )
@@ -154,7 +163,7 @@ export const Date: React.FC<{ list?: boolean }> = ({ list }) => {
     <Fragment>
       <Label isList={list} />
       <Placeholder isList={list} />
-      <Size isList={list} />
+      <DateSize isList={list} pickerType='date' />
       {/* <DateFormats options={dateFormatsOptions} isList={list} /> */}
       <DisabledBeforeToday isList={list} />
       <br />
@@ -167,7 +176,7 @@ export const DateRange: React.FC<{ list?: boolean }> = ({ list }) => {
   return (
     <Fragment>
       <Label isList={list} />
-      <Size isList={list} />
+      <DateSize isList={list} pickerType='date' />
       {/* <DateFormats options={dateFormatsOptions} isList={list} /> */}
       <DisabledBeforeToday isList={list} />
       <br />
@@ -181,7 +190,7 @@ export const Time: React.FC<{ list?: boolean }> = ({ list }) => {
     <Fragment>
       <Label isList={list} />
       <Placeholder isList={list} />
-      <Size isList={list} />
+      <DateSize isList={list} pickerType='time' />
       {/* <DateFormats options={timeFormatsOptions} isList={list} /> */}
       <IsRequired isList={list} />
     </Fragment>
@@ -192,7 +201,7 @@ export const TimeRange: React.FC<{ list?: boolean }> = ({ list }) => {
   return (
     <Fragment>
       <Label isList={list} />
-      <Size isList={list} />
+      <DateSize isList={list} pickerType='time' />
       {/* <DateFormats options={timeFormatsOptions} isList={list} /> */}
       <br />
       <IsRequired isList={list} />
@@ -205,7 +214,7 @@ export const DateTime: React.FC<{ list?: boolean }> = ({ list }) => {
     <Fragment>
       <Label isList={list} />
       <Placeholder isList={list} />
-      <Size isList={list} />
+      <DateSize isList={list} pickerType='datetime' />
       {/* <DateFormats options={dateTimeFormatsOptions} isList={list} /> */}
       <DisabledBeforeToday isList={list} />
       <br />
@@ -219,6 +228,7 @@ export const DateTimeRange: React.FC<{ list?: boolean }> = ({ list }) => {
     <Fragment>
       <Label isList={list} />
       <Size isList={list} />
+      <DateSize isList={list} pickerType='datetime' />
       {/* <DateFormats options={dateTimeFormatsOptions} isList={list} /> */}
       <DisabledBeforeToday isList={list} />
       <br />

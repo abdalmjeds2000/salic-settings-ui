@@ -34,6 +34,8 @@ const InputType = (props: Props) => {
         { key: 'radio', name: 'Radio Buttons', icon: inputsIcons['radio'] },
         { key: 'radiobuttons', name: 'Buttons', icon: inputsIcons['radiobuttons'] },
         { key: 'select', name: 'Select', icon: inputsIcons['select'] },
+        { key: 'multiSelect', name: 'Multi Select', icon: inputsIcons['multiSelect'] },
+        { key: 'lookupSelect', name: 'Lookup Select', icon: inputsIcons['lookupSelect'] },
         { key: 'list', name: 'List', icon: inputsIcons['list'] },
       ]
     },

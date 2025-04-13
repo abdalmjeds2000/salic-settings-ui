@@ -1,5 +1,6 @@
 import React from 'react';
 import AddFieldForm from './add-field-form';
+import { FormField } from '../../../types';
 
 
 type ContextType = {  
@@ -12,12 +13,14 @@ const Context = React.createContext<ContextType>({} as ContextType);
 export type FieldDrawerProps = {
   open: boolean;
   setOpen: (o: boolean) => void;
+  initValues?: FormField;
+  submitButtonText?: string;
   width?: number | string;
   secondDrawerWidth?: number | string;
 }
 
 export const FieldDrawer: React.FC<FieldDrawerProps> = ({
-  open, setOpen, width = 400, secondDrawerWidth = 350
+  open, setOpen, width = 400, initValues, submitButtonText = 'Add Field', secondDrawerWidth = 350
 }) => {
 
   if(!open) return null
@@ -29,7 +32,9 @@ export const FieldDrawer: React.FC<FieldDrawerProps> = ({
 
         <AddFieldForm
           width={width} 
+          initValues={initValues}
           secondDrawerWidth={secondDrawerWidth}
+          submitButtonText={submitButtonText}
           onSubmit={values => console.log('values ===>>', values)}
         />
       </div>
