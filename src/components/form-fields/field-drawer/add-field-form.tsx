@@ -192,7 +192,7 @@ const AddFieldForm: React.FC<Props> = ({
               {!!activeChild && <div className='wrapper' style={{ width: width }}>
                 <div className='header'>
                   <div style={{ flexGrow: 1, display: 'flex', alignItems: 'center' }}>
-                    <button type='button' onClick={close3} className='btn icon-btn' style={{ color: 'var(--primary-700) '}}>
+                    <button type='button' onClick={close3} className='btn icon-btn' style={{ color: 'var(--settigns-ui-primary) '}}>
                       <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 12H3m8 6 6-6-6-6m10-1v14"/></svg>
                     </button>
                     <h1>Child Input Settings</h1>
@@ -234,7 +234,7 @@ const AddFieldForm: React.FC<Props> = ({
               {open2 && <div className='wrapper' style={{ width: secondDrawerWidth }}>
                 <div className='header'>
                   <div style={{ flexGrow: 1, display: 'flex', alignItems: 'center' }}>
-                    <button type='button' onClick={close2} className='btn icon-btn' style={{ color: 'var(--primary-700) '}}>
+                    <button type='button' onClick={close2} className='btn icon-btn' style={{ color: 'var(--settigns-ui-primary) '}}>
                       <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 12H3m8 6 6-6-6-6m10-1v14"/></svg>
                     </button>
                     <h1>Dropdown Menu Items</h1>

@@ -8,7 +8,7 @@
       align-items: center;
       gap: 2rem;
       p {
-        color: var(--dark-50);
+        color: var(--settigns-ui-dark-50);
         font-size: var(--text-sm);
         margin-top: 6px;
         display: flex;
@@ -26,7 +26,7 @@
           td {
             padding: .25rem 0rem .5rem;
             font-size: var(--text-sm);
-            color: var(--dark-50);
+            color: var(--settigns-ui-dark-50);
           }
           td.label {
             font-weight: 500;
@@ -38,7 +38,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        border-color: var(--secondary-100);
+        border-color: var(--settigns-ui-secondary-100);
         padding-top: .5rem;
         .title {
           font-size: var(--text-sm);

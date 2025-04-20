@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { ChevronDown, ChevronRight } from 'lucide-react';
+import { useSettingsConfig } from '../ConfigProvider';
 
 type RowCardProps = React.PropsWithChildren<{
   icon?: React.ReactNode;
@@ -23,12 +24,14 @@ export const RowCard = ({
   children
 }: RowCardProps) => {
   const [open, setOpen] = React.useState<boolean>(!!collapsedDefaultValue);
+  const { theme } = useSettingsConfig()
 
   const doCollapse = () => {
     collapsable ? setOpen(!open) : undefined
   }
+  
   return (
-    <div className={classNames('salic-settings-item row-card', className)} style={style}>
+    <div className={classNames('salic-settings-item row-card', className, { 'dark': theme === 'dark' })} style={style}>
       <div className='main-content'>
         {!!icon && <div className='icon-container' style={{ backgroundColor: iconBgColor, cursor: collapsable ? 'pointer' : 'default' }} onClick={doCollapse}>
           {icon}

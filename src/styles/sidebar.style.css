@@ -1,5 +1,5 @@
 .salic-settings-item.sidebar {
-  background-color: #fff;
+  background-color: var(--settigns-ui-bg-base);
   padding: 18px 28px;
   border-right: var(--border);
   height: 100%;
@@ -37,10 +37,10 @@
       cursor: pointer;
       transition: background-color var(--transition-duration) ease-in-out;
       &:hover {
-        background-color: var(--secondary-100);
+        background-color: var(--settigns-ui-secondary-100);
       }
       &.active {
-        background-color: var(--secondary-100);
+        background-color: var(--settigns-ui-secondary-100);
       }
       &.active::after {
         content: "";
@@ -50,7 +50,7 @@
         width: 3px;
         height: 60%;
         border-radius: 2px;
-        background-color: var(--primary-500);
+        background-color: var(--settigns-ui-primary);
         transform: translateY(-50%);
       }
     }

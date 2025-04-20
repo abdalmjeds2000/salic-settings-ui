@@ -1,11 +1,11 @@
 .salic-settings-item.row-card {
-  background-color: #fff;
+  background-color: var(--settigns-ui-bg-base);
   border-radius: var(--radius);
   overflow: hidden;
   border: var(--border);
     &:hover {
       border: var(--border);
-      border-color: var(--primary-500);
+      border-color: var(--settigns-ui-primary);
     }
     .main-content {
       display: flex;
@@ -31,7 +31,7 @@
         font-weight: 600;
       }
       p.description {
-        color: var(--dark-50);
+        color: var(--settigns-ui-dark-50);
         font-size: var(--text-sm);
         margin-top: 2px;
       }
@@ -41,7 +41,7 @@
       align-items: center;
       gap: 0.5rem;
       .collapse-icon {
-        color: var(--dark-50);
+        color: var(--settigns-ui-dark-50);
       }
     }
 }

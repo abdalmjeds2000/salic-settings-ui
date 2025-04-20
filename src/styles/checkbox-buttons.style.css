@@ -11,13 +11,13 @@
     border-radius: var(--radius);
     cursor: pointer;
     border: var(--border);
-    border-color: var(--secondary-200);
+    border-color: var(--settigns-ui-secondary-200);
     transition: border-color var(--transition-duration) ease-in-out;
     font-weight: 500;
     line-height: 1.25;
-    background-color: #fff;
+    background-color: var(--settigns-ui-bg-base);
     &.active {
-      border-color: var(--primary-700);
+      border-color: var(--settigns-ui-primary);
       box-shadow: var(--shadow);
     }
   }
@@ -32,5 +32,11 @@
   &.sm .item {
     font-size: var(--text-sm);
     padding: 4px 8px;
+  }
+
+  &.dark {
+    .item {
+      background-color: #141414;
+    }
   }
 }

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { useSettingsConfig } from '../ConfigProvider';
 
 type ImageInputProps = {
   icon?: React.ReactNode;
@@ -17,6 +18,7 @@ export const ImageInput = ({
   className, style,
   onChange
 }: ImageInputProps) => {
+  const { theme } = useSettingsConfig()
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -32,7 +34,7 @@ export const ImageInput = ({
   };
 
   return (
-    <div className={classNames('salic-settings-item image-input', className)} style={style}>
+    <div className={classNames('salic-settings-item image-input', className, { 'dark': theme === 'dark' })} style={style}>
       <img 
         src={image as string} 
         className={classNames('image', imageClassName)}

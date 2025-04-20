@@ -1,5 +1,5 @@
 .salic-settings-item.group-card {
-  background-color: white;
+  background-color: var(--settigns-ui-bg-base);
   border: var(--border);
   border-radius: var(--radius);
   display: flex;
@@ -9,8 +9,8 @@
     cursor: pointer;
   }
   &:hover {
-    background-color: var(--secondary-100);
-    border-color: var(--secondary-700);
+    background-color: var(--settigns-ui-secondary-100);
+    border-color: var(--settigns-ui-secondary-500);
   }
   .avatar {
     border-radius: 50%;
@@ -52,7 +52,7 @@
       font-weight: 600;
     }
     p {
-      color: var(--dark-50);
+      color: var(--settigns-ui-dark-50);
       font-size: var(--text-sm);
       line-height: 1.25;
     }

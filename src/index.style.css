@@ -11,29 +11,31 @@
 @import url(./styles/inputs.style.css);
 
 :root {
-  --primary-500: #0B4D89;
-  --primary-700: #08305C;
+  --settigns-ui-primary: #08305C;
   
-  --secondary-50: #F5FAFE;
-  --secondary-100: #EAF1FB;
-  --secondary-200: #dbe7f8;
-  --secondary-500: #79BDE3;
-  --secondary-700: #339BD6;
+  --settigns-ui-text-color:  var(--settigns-ui-primary);
 
-  --success: #2A9F61;
-  --warning: #E6AB15;
-  --danger: #E74848;
+  --settigns-ui-bg-base: #FFFFFF;
+
+  --settigns-ui-secondary-50: #F5FAFE;
+  --settigns-ui-secondary-100: #EAF1FB;
+  --settigns-ui-secondary-200: #dbe7f8;
+  --settigns-ui-secondary-500: #339BD6;
+
+  --settigns-ui-success: #2A9F61;
+  --settigns-ui-warning: #E6AB15;
+  --settigns-ui-danger: #E74848;
   
-  --light-100: #F2F2F2;
-  --light-200: #E5E5E5;
-  --light-300: #D5D5D5;
-  --gray: #959595;
-  --dark-50: #767d84;
-  --dark-100: #2A2A2A;
-  --dark-200: #181818;
-  --dark-300: #0F0F0F;
+  --settigns-ui-light-100: #F2F2F2;
+  --settigns-ui-light-200: #E5E5E5;
+  --settigns-ui-light-300: #D5D5D5;
+  --settigns-ui-gray: #959595;
+  --settigns-ui-dark-50: #767d84;
+  --settigns-ui-dark-100: #2A2A2A;
+  --settigns-ui-dark-200: #181818;
+  --settigns-ui-dark-300: #0F0F0F;
 
-  --shadow: 0px 2px 7px #0B4D8936;
+  --shadow: 0px 2px 7px #00000036;
 
   --text-xl: 1.5rem;
   --text-lg: 1.25rem;
@@ -46,12 +48,13 @@
 
   --transition-duration: 0.3s;
 
-  --border: 1px solid var(--secondary-200);
+  --border: 1px solid var(--settigns-ui-secondary-200);
 }
 
 .salic-settings-item {
-  color: var(--primary-700);
+  color: var(--settigns-ui-text-color);
 }
+
 
 /* form & inputs */
 .form-item {
@@ -69,13 +72,13 @@
     border-radius: var(--radius);
     display: block;
     width: 100%;
-    color: var(--primary-700);
+    color: var(--settigns-ui-primary);
     font-size: var(--text-md);
     transition-property: border;
     transition-duration: var(--transition-duration);
     &:focus {
-      border-color: var(--secondary-700);
-      outline: 4px solid var(--secondary-100);
+      border-color: var(--settigns-ui-secondary-500);
+      outline: 4px solid var(--settigns-ui-secondary-100);
     }
     &::placeholder {
       color: #98a0aa;
@@ -83,7 +86,7 @@
   }
   .error-msg {
     font-size: var(--text-md);
-    color: var(--danger);
+    color: var(--settigns-ui-danger);
     font-weight: 500;
     margin-top: .5rem;
   }
@@ -111,7 +114,7 @@
     opacity: 0.9;
   }
   &:disabled {
-    background-color: var(--gray);
+    background-color: var(--settigns-ui-gray);
     cursor: not-allowed;
   }
 }
@@ -132,28 +135,28 @@
 /* button variants */
 .default-btn {
   background-color:  #00000008;
-  color: var(--dark-100);
+  color: var(--settigns-ui-dark-100);
   &:hover {
     background-color: #00000016;
   }
 }
 .secondary-btn {
-  background-color: var(--secondary-100);
+  background-color: var(--settigns-ui-secondary-100);
   color: var(--primary);
   &:hover {
-    background-color: var(--secondary-200);
+    background-color: var(--settigns-ui-secondary-200);
   }
 }
 .primary-btn {
-  background-color: var(--primary-700);
+  background-color: var(--settigns-ui-primary);
   color: white;
   &:hover {
-    background-color: var(--primary-500);
+    background-color: var(--settigns-ui-primary);
   }
 }
 .danger-btn {
   background-color: #fff2f2;
-  color: var(--danger);
+  color: var(--settigns-ui-danger);
   &:hover {
     background-color: #ffdcdc;
   }
@@ -168,7 +171,7 @@
 
 
 .anchor-btn {
-  color: var(--primary-700);
+  color: var(--settigns-ui-primary);
   font-weight: 500;
   transition-property: color;
   transition-duration: var(--transition-duration);
@@ -188,7 +191,7 @@
 }
 
 .checkbox .checkbox-label {
-  background-color: #fff;
+  background-color: var(--settigns-ui-bg-base);
   border: var(--border);
   border-radius: var(--radius);
   cursor: pointer;
@@ -218,8 +221,8 @@
 }
 
 .checkbox input[type="checkbox"]:checked + label {
-  background-color: var(--primary-700);
-  border-color: var(--primary-700);
+  background-color: var(--settigns-ui-primary);
+  border-color: var(--settigns-ui-primary);
 }
 
 .checkbox input[type="checkbox"]:checked + label:after {

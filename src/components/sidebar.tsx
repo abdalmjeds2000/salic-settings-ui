@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { useSettingsConfig } from '../ConfigProvider';
 
 export type SidebarItem = {
   label: string;
@@ -24,9 +25,10 @@ export const Sidebar = ({
   extra,
   className, style,
 }: SidebarProps) => {
+  const { theme } = useSettingsConfig()
 
   return (
-    <div className={classNames('salic-settings-item sidebar', className)} style={style}>
+    <div className={classNames('salic-settings-item sidebar', className, { 'dark': theme === 'dark' })} style={style}>
       <div className='header'>
         <div>
           {beforeTitle}

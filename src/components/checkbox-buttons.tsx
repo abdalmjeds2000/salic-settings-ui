@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { useSettingsConfig } from '../ConfigProvider';
 
 export type CheckboxButtonsProps = {
   items: { key: string|number; label: React.ReactNode|string; style?: React.CSSProperties }[];
@@ -17,8 +18,10 @@ export const CheckboxButtons = ({
   className, style,
   onClick
 }: CheckboxButtonsProps) => {
+  const { theme } = useSettingsConfig()
+
   return (
-    <div className={classNames('salic-settings-item checkbox-buttons', size, className)} style={style} onClick={onClick}>
+    <div className={classNames('salic-settings-item checkbox-buttons', size, className, { 'dark': theme === 'dark' })} style={style} onClick={onClick}>
       {
         items.map((item) => {
           return (

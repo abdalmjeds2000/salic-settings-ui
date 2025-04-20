@@ -22,8 +22,8 @@
       max-width: 100dvw;
       height: 100%;
       overflow: auto;
-      background-color: #fff;
-      border-left: 2px solid var(--light-200);
+      background-color: var(--settigns-ui-bg-base);
+      border-left: 2px solid var(--settigns-ui-light-200);
       padding: 24px;
       .header {
         display: flex;

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { useSettingsConfig } from '../ConfigProvider';
 
 type ColorCheckboxProps = {
   color: string;
@@ -18,6 +19,7 @@ export const ColorCheckbox = ({
   disabled = false,
   className, style = {}
 }: ColorCheckboxProps) => {
+  const { theme } = useSettingsConfig()
 
   const sizeMap = {
     lg: {
@@ -35,7 +37,7 @@ export const ColorCheckbox = ({
   }
   return (
     <div 
-      className={classNames('salic-settings-item color-checkbox', className)} 
+      className={classNames('salic-settings-item color-checkbox', className, { 'dark': theme === 'dark' })} 
       style={{ 
         backgroundColor: color, 
         width: sizeMap[size].width,

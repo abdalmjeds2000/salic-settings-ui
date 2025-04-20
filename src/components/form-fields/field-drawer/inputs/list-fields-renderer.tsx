@@ -27,7 +27,7 @@ export const ListFieldsRenderer: React.FC = () => {
                   <li 
                     key={index} 
                     style={{ 
-                      backgroundColor: activeChild?.index == index ? 'var(--secondary-50)' : 'transparent',
+                      backgroundColor: activeChild?.index == index ? 'var(--settigns-ui-secondary-50)' : 'transparent',
                       marginBottom: '6px',
                       padding: '6px 12px',
                       display: 'flex',
