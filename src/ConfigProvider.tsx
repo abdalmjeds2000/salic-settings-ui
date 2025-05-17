@@ -7,6 +7,7 @@ interface SettingsConfig {
     'primary'?: string;
     'bg-base'?: string;
     'text-color'?: string;
+    'text-secondary-color'?: string;
     'secondary-50'?: string;
     'secondary-100'?: string;
     'secondary-200'?: string;
@@ -20,6 +21,7 @@ const SettingsConfigContext = createContext<SettingsConfig>({
     'primary': '#08305C',
     'bg-base': '#FFFFFF',
     'text-color': '#08305C',
+    'text-secondary-color': '#767d84',
     'secondary-50': '#F5FAFE',
     'secondary-100': '#EAF1FB',
     'secondary-200': '#dbe7f8',
@@ -46,8 +48,9 @@ export function SettingsConfigProvider({ children, config }: SettingsConfigProvi
   useEffect(() => {
     const colors = {
       'primary': config.theme === 'dark' ? '#FFFFFF' : (config.colors?.['primary'] || '#08305C'),
-      'bg-base': config.theme === 'dark' ? '#2A2A2A' : (config.colors?.['bg-base'] || '#FFFFFF'),
+      'bg-base': config.theme === 'dark' ? '#141414' : (config.colors?.['bg-base'] || '#FFFFFF'),
       'text-color': config.theme === 'dark' ? '#FFFFFF' : (config.colors?.['text-color'] || 'var(--settigns-ui-primary)'),
+      'text-secondary-color': config.theme === 'dark' ? '#FFFFFF70' : (`${config.colors?.['primary']}70` || 'var(--settigns-ui-primary)'),
       'secondary-50': config.theme === 'dark' ? '#3F3F3F' : (config.colors?.['secondary-50'] || '#F5FAFE'),
       'secondary-100': config.theme === 'dark' ? '#2F2F2F' : (config.colors?.['secondary-100'] || '#EAF1FB'),
       'secondary-200': config.theme === 'dark' ? '#1F1F1F' : (config.colors?.['secondary-200'] || '#dbe7f8'),

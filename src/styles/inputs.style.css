@@ -28,7 +28,7 @@
   .block {
     margin-bottom: 2rem;
     .title {
-      color: var(--settigns-ui-gray);
+      color: var(--settigns-ui-text-secondary-color);
       font-size: var(--text-md);
       margin-bottom: 1rem;
     }
@@ -106,7 +106,7 @@
         content: 'Enter a Text ...';
         position: absolute;
         font-size: var(--text-sm);
-        color: var(--settigns-ui-gray);
+        color: var(--settigns-ui-text-secondary-color);
         left: 1rem;
         top: 50%;
         transform: translateY(-50%);
