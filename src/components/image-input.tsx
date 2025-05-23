@@ -10,7 +10,7 @@ type ImageInputResponse = {
 type ImageInputProps = {
   icon?: React.ReactNode;
   placeholder?: string;
-  image: string | null | undefined;
+  image?: string | null;
   imageClassName?: string;
   imageStyle?: React.CSSProperties;
   className?: string;
@@ -21,7 +21,7 @@ type ImageInputProps = {
 export const ImageInput = ({
   icon,
   placeholder = "Upload Image",
-  image,
+  image: initialImage = null,
   imageClassName,
   imageStyle,
   className,
@@ -29,44 +29,77 @@ export const ImageInput = ({
   onChange
 }: ImageInputProps) => {
   const { theme } = useSettingsConfig();
+  const [image, setImage] = React.useState<string | null>(initialImage);
+  const [isDragging, setIsDragging] = React.useState(false);
+
+  const handleFile = (file: File) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const base64 = reader.result as string;
+      setImage(base64);
+
+      if (onChange) {
+        onChange({
+          getBase64: () => base64,
+          getFile: () => file
+        });
+      }
+    };
+    reader.readAsDataURL(file);
+  };
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        const base64 = reader.result as string;
+    if (file) handleFile(file);
+  };
 
-        if (onChange) {
-          const response: ImageInputResponse = {
-            getBase64: () => base64,
-            getFile: () => file
-          };
-          onChange(response);
-        }
-      };
-      reader.readAsDataURL(file);
+  const handleDrop = (event: React.DragEvent<HTMLLabelElement>) => {
+    event.preventDefault();
+    setIsDragging(false);
+    const file = event.dataTransfer.files?.[0];
+    if (file && file.type.startsWith("image/")) {
+      handleFile(file);
     }
   };
 
+  const handleDragOver = (event: React.DragEvent<HTMLLabelElement>) => {
+    event.preventDefault();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = () => {
+    setIsDragging(false);
+  };
+
   return (
-    <div className={classNames('salic-settings-item image-input', className, { 'dark': theme === 'dark' })} style={style}>
-      <img 
-        src={image as string} 
-        className={classNames('image', imageClassName)}
-        style={imageStyle}
-      />
-      
-      <label>
+    <div 
+      className={classNames('salic-settings-item image-input', className, { 'dark': theme === 'dark' })}
+      style={style}
+    >
+      {image && (
+        <img 
+          src={image}
+          className={classNames('image', imageClassName)}
+          style={imageStyle}
+        />
+      )}
+
+      <label
+        onDrop={handleDrop}
+        onDragOver={handleDragOver}
+        onDragLeave={handleDragLeave}
+        className={classNames("drop-zone", { dragging: isDragging })}
+        style={{ cursor: "pointer", display: "block" }}
+      >
         <input 
           type="file" 
           accept="image/*" 
           onChange={handleImageChange} 
           style={{ display: "none" }}
         />
-        <div className={classNames('placeholder-btn', { "with-image": !!image }, { "without-image": !image })}>
+        <div className={classNames('placeholder-btn', { "with-image": !!image, "without-image": !image })}>
           {!!icon && <span>{icon}</span>}
-          <p>{placeholder}</p>
+          <p>{isDragging ? "Drop the image here..." : placeholder}</p>
         </div>
       </label>
     </div>
