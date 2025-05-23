@@ -2,31 +2,47 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { useSettingsConfig } from '../ConfigProvider';
 
+type ImageInputResponse = {
+  getBase64: () => string | null;
+  getFile: () => File | null;
+};
+
 type ImageInputProps = {
   icon?: React.ReactNode;
   placeholder?: string;
   image: string | null | undefined;
-  imageClassName?: string; imageStyle?: React.CSSProperties;
+  imageClassName?: string;
+  imageStyle?: React.CSSProperties;
   className?: string;
   style?: React.CSSProperties;
-  onChange?: (image: string | null) => void;
+  onChange?: (response: ImageInputResponse) => void;
 };
 
 export const ImageInput = ({
-  icon, placeholder = "Upload Image",
-  image, imageClassName, imageStyle,
-  className, style,
+  icon,
+  placeholder = "Upload Image",
+  image,
+  imageClassName,
+  imageStyle,
+  className,
+  style,
   onChange
 }: ImageInputProps) => {
-  const { theme } = useSettingsConfig()
+  const { theme } = useSettingsConfig();
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
+        const base64 = reader.result as string;
+
         if (onChange) {
-          onChange(reader.result as string);
+          const response: ImageInputResponse = {
+            getBase64: () => base64,
+            getFile: () => file
+          };
+          onChange(response);
         }
       };
       reader.readAsDataURL(file);
@@ -41,7 +57,6 @@ export const ImageInput = ({
         style={imageStyle}
       />
       
-      {/* Input Wrapper */}
       <label>
         <input 
           type="file" 
