@@ -11,6 +11,7 @@ type ImageInputProps = {
   icon?: React.ReactNode;
   placeholder?: string;
   image?: string | null;
+  readOnly?: boolean;
   imageClassName?: string;
   imageStyle?: React.CSSProperties;
   className?: string;
@@ -21,7 +22,8 @@ type ImageInputProps = {
 export const ImageInput = ({
   icon,
   placeholder = "Upload Image",
-  image: initialImage = null,
+  image = null,
+  readOnly = false,
   imageClassName,
   imageStyle,
   className,
@@ -29,14 +31,12 @@ export const ImageInput = ({
   onChange
 }: ImageInputProps) => {
   const { theme } = useSettingsConfig();
-  const [image, setImage] = React.useState<string | null>(initialImage);
   const [isDragging, setIsDragging] = React.useState(false);
 
   const handleFile = (file: File) => {
     const reader = new FileReader();
     reader.onload = () => {
       const base64 = reader.result as string;
-      setImage(base64);
 
       if (onChange) {
         onChange({
@@ -49,11 +49,13 @@ export const ImageInput = ({
   };
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (readOnly) return;
     const file = event.target.files?.[0];
     if (file) handleFile(file);
   };
 
   const handleDrop = (event: React.DragEvent<HTMLLabelElement>) => {
+    if (readOnly) return;
     event.preventDefault();
     setIsDragging(false);
     const file = event.dataTransfer.files?.[0];
@@ -63,11 +65,13 @@ export const ImageInput = ({
   };
 
   const handleDragOver = (event: React.DragEvent<HTMLLabelElement>) => {
+    if (readOnly) return;
     event.preventDefault();
     setIsDragging(true);
   };
 
   const handleDragLeave = () => {
+    if (readOnly) return;
     setIsDragging(false);
   };
 
@@ -88,14 +92,15 @@ export const ImageInput = ({
         onDrop={handleDrop}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
-        className={classNames("drop-zone", { dragging: isDragging })}
-        style={{ cursor: "pointer", display: "block" }}
+        className={classNames("drop-zone", { dragging: isDragging, disabled: readOnly })}
+        style={{ cursor: readOnly ? "not-allowed" : "pointer", display: "block" }}
       >
         <input 
           type="file" 
           accept="image/*" 
           onChange={handleImageChange} 
           style={{ display: "none" }}
+          disabled={readOnly}
         />
         <div className={classNames('placeholder-btn', { "with-image": !!image, "without-image": !image })}>
           {!!icon && <span>{icon}</span>}

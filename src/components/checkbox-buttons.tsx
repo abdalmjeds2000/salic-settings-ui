@@ -7,6 +7,7 @@ export type CheckboxButtonsProps = {
   activeKey: string|number|undefined|null;
   onChange: (key: string|number|undefined|null) => void;
   size?: 'sm' | 'default' | 'lg';
+  readOnly?: boolean;
   className?: string;
   style?: React.CSSProperties;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
@@ -15,6 +16,7 @@ export type CheckboxButtonsProps = {
 export const CheckboxButtons = ({
   items, activeKey, onChange,
   size = 'default',
+  readOnly = false,
   className, style,
   onClick
 }: CheckboxButtonsProps) => {
@@ -25,7 +27,16 @@ export const CheckboxButtons = ({
       {
         items.map((item) => {
           return (
-            <div key={item.key} className={classNames('item', { 'active': item.key === activeKey })} style={item.style} onClick={() => onChange(item.key)}>
+            <div 
+              key={item.key}
+              className={classNames('item', { 'active': item.key === activeKey })}
+              style={item.style}
+              onClick={() => {
+                if (!readOnly) {
+                  onChange(item.key);
+                }
+              }}
+            >
               {item.label}
             </div>
           )

@@ -12,6 +12,7 @@ const meta: Meta<typeof CheckboxButtons> = {
     className: { control: 'text' },
     style: { control: 'object' },
     onClick: { action: 'clicked' },
+    readOnly: { control: 'boolean' }, // ✅ added here
   },
 };
 
@@ -39,6 +40,18 @@ Default.args = {
     { key: 'option3', label: 'Option 3' },
   ],
   activeKey: 'option1',
+  readOnly: false, // ✅ default value
+};
+
+export const ReadOnly = Template.bind({});
+ReadOnly.args = {
+  items: [
+    { key: 'option1', label: 'Option 1' },
+    { key: 'option2', label: 'Option 2' },
+    { key: 'option3', label: 'Option 3' },
+  ],
+  activeKey: 'option2',
+  readOnly: true, // ✅ locked interaction
 };
 
 export const Sizes = () => {
