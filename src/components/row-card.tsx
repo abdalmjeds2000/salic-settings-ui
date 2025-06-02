@@ -11,6 +11,7 @@ type RowCardProps = React.PropsWithChildren<{
   extra?: React.ReactNode;
   collapsable?: boolean;
   collapsedDefaultValue?: boolean;
+  alwaysOpen?: boolean; 
   className?: string;
   style?: React.CSSProperties;
 }>
@@ -19,17 +20,23 @@ export const RowCard = ({
   icon, iconBgColor,
   title, description,
   extra,
-  collapsable, collapsedDefaultValue,
+  collapsable,
+  collapsedDefaultValue,
+  alwaysOpen = false, 
   className, style,
   children
 }: RowCardProps) => {
   const [open, setOpen] = React.useState<boolean>(!!collapsedDefaultValue);
-  const { theme } = useSettingsConfig()
+  const { theme } = useSettingsConfig();
 
   const doCollapse = () => {
-    collapsable ? setOpen(!open) : undefined
-  }
-  
+    if (collapsable && !alwaysOpen) {
+      setOpen(!open);
+    }
+  };
+
+  const isOpen = alwaysOpen || open; 
+
   return (
     <div className={classNames('salic-settings-item row-card', className, { 'dark': theme === 'dark' })} style={style}>
       <div className='main-content'>
@@ -39,20 +46,19 @@ export const RowCard = ({
         <div className='info' style={{ cursor: collapsable ? 'pointer' : 'default' }} onClick={doCollapse}>
           <h3>{title}</h3>
           {
-            typeof description === 'string' 
-            ? <p className='description'>{description}</p>
-            : description
+            typeof description === 'string'
+              ? <p className='description'>{description}</p>
+              : description
           }
         </div>
         <div className='extra'>
           {extra}
-          {collapsable && <span className='collapse-icon' style={{ cursor: collapsable ? 'pointer' : 'default' }} onClick={doCollapse}>
-            {open && <ChevronDown size={20} />}
-            {!open && <ChevronRight size={20} />}
+          {collapsable && <span className='collapse-icon' style={{ cursor: 'pointer' }} onClick={doCollapse}>
+            {isOpen ? <ChevronDown size={20} /> : <ChevronRight size={20} />}
           </span>}
         </div>
       </div>
-      {(collapsable && open) && <div className='expand-content'>
+      {(collapsable && isOpen) && <div className='expand-content'>
         {children}
       </div>}
     </div>

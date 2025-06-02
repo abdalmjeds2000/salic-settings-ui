@@ -12,6 +12,7 @@ export default {
     iconBgColor: { control: 'color' },
     collapsable: { control: 'boolean' },
     collapsedDefaultValue: { control: 'boolean' },
+    alwaysOpen: { control: 'boolean' },
     className: { control: 'text' },
     style: { control: 'object' },
   },
@@ -36,6 +37,17 @@ Collapsable.args = {
   description: 'Click to expand and reveal more options.',
   collapsable: true,
   children: <div style={{ padding: '25px' }}><p>Expanded content goes here.</p></div>,
+};
+
+export const AlwaysOpen = Template.bind({});
+AlwaysOpen.args = {
+  icon: <Settings size={20} />,
+  iconBgColor: '#FFCDD2',
+  title: 'Always Open Section',
+  description: 'This section is always expanded regardless of user interaction.',
+  collapsable: true,
+  alwaysOpen: true,
+  children: <div style={{ padding: '25px' }}><p>This content is always visible.</p></div>,
 };
 
 export const CustomStyled = Template.bind({});

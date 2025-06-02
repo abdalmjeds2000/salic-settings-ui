@@ -14,8 +14,7 @@
   --settigns-ui-primary: #08305C;
   
   --settigns-ui-text-color:  var(--settigns-ui-primary);
-  /* --settigns-ui-text-secondary-color:  #767d84; */
-  --settigns-ui-text-secondary-color:  #f00;
+  --settigns-ui-text-secondary-color:  #767d84;
 
   --settigns-ui-bg-base: #FFFFFF;
 
