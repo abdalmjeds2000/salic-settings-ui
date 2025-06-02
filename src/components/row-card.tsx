@@ -40,23 +40,26 @@ export const RowCard = ({
   return (
     <div className={classNames('salic-settings-item row-card', className, { 'dark': theme === 'dark' })} style={style}>
       <div className='main-content'>
-        {!!icon && <div className='icon-container' style={{ backgroundColor: iconBgColor, cursor: collapsable ? 'pointer' : 'default' }} onClick={doCollapse}>
-          {icon}
-        </div>}
-        <div className='info' style={{ cursor: collapsable ? 'pointer' : 'default' }} onClick={doCollapse}>
-          <h3>{title}</h3>
-          {
-            typeof description === 'string'
-              ? <p className='description'>{description}</p>
-              : description
-          }
+        <div className='row'>
+          {!!icon && <div className='icon-container' style={{ backgroundColor: iconBgColor, cursor: collapsable ? 'pointer' : 'default' }} onClick={doCollapse}>
+            {icon}
+          </div>}
+          <div className='info' style={{ cursor: collapsable ? 'pointer' : 'default' }} onClick={doCollapse}>
+            <h3>{title}</h3>
+            {
+              typeof description === 'string'
+                ? <p className='description'>{description}</p>
+                : description
+            }
+          </div>
+          <div className='extra'>
+            <div className='desktop-extra'>{extra}</div>
+            {collapsable && <span className='collapse-icon' style={{ cursor: 'pointer' }} onClick={doCollapse}>
+              {isOpen ? <ChevronDown size={20} /> : <ChevronRight size={20} />}
+            </span>}
+          </div>
         </div>
-        <div className='extra'>
-          {extra}
-          {collapsable && <span className='collapse-icon' style={{ cursor: 'pointer' }} onClick={doCollapse}>
-            {isOpen ? <ChevronDown size={20} /> : <ChevronRight size={20} />}
-          </span>}
-        </div>
+        <div className='mobile-extra'>{extra}</div>
       </div>
       {(collapsable && isOpen) && <div className='expand-content'>
         {children}
