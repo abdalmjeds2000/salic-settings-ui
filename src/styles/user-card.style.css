@@ -11,8 +11,7 @@
     cursor: pointer;
   }
   &:hover {
-    background-color: var(--settigns-ui-secondary-100);
-    border-color: var(--settigns-ui-secondary-500);
+    border-color: var(--settigns-ui-primary);
   }
   .photo-container {
     border-radius: 50%;
