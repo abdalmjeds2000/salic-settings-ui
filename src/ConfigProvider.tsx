@@ -50,7 +50,7 @@ export function SettingsConfigProvider({ children, config }: SettingsConfigProvi
       'primary': config.theme === 'dark' ? '#FFFFFF' : (config.colors?.['primary'] || '#08305C'),
       'bg-base': config.theme === 'dark' ? '#141414' : (config.colors?.['bg-base'] || '#FFFFFF'),
       'text-color': config.theme === 'dark' ? '#FFFFFF' : (config.colors?.['text-color'] || 'var(--settigns-ui-primary)'),
-      'text-secondary-color': config.theme === 'dark' ? '#FFFFFF70' : (`${config.colors?.['primary']}70` || 'var(--settigns-ui-primary)'),
+      'text-secondary-color': config.theme === 'dark' ? '#FFFFFF70' : config.colors?.['text-secondary-color'],
       'secondary-50': config.theme === 'dark' ? '#3F3F3F' : (config.colors?.['secondary-50'] || '#F5FAFE'),
       'secondary-100': config.theme === 'dark' ? '#2F2F2F' : (config.colors?.['secondary-100'] || '#EAF1FB'),
       'secondary-200': config.theme === 'dark' ? '#1F1F1F' : (config.colors?.['secondary-200'] || '#dbe7f8'),
